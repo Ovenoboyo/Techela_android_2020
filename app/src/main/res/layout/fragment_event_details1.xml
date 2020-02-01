@@ -3,25 +3,34 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="#f0f0f0"
+    android:background="#ffffff"
     android:clickable="true"
-    android:focusable="false"
+    android:clipToPadding="true"
     xmlns:card_view="http://schemas.android.com/tools">
-    <!--    android:background="#ECECEC"-->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:background="@drawable/thin_border_grad"
+        android:layout_marginVertical="8dp"
+        android:layout_marginHorizontal="8dp"
+        android:layout_height="match_parent">
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/cards_margin">
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginVertical="20dp"
+            android:layout_margin="20dp">
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/EventBanner"
-                app:cardCornerRadius="18dp"
                 android:layout_width="match_parent"
-                android:layout_height="250dp">
+                app:cardCornerRadius="18dp"
+                android:background="@drawable/boarder_orange"
+                android:elevation="0dp"
+                android:layout_height="197dp">
 
                 <ImageView
-
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:scaleType="centerCrop"
@@ -29,12 +38,13 @@
             </androidx.cardview.widget.CardView>
 
 
+
             <androidx.cardview.widget.CardView
                 android:id="@+id/card1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/EventBanner"
-                app:cardCornerRadius="30dp"
+                app:cardCornerRadius="18dp"
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="-28sp"
                 android:layout_marginEnd="30dp"
@@ -44,102 +54,72 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@drawable/boarder_black"
                     android:padding="12dp"
-                    android:background="@drawable/border_blue_30"
                     android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/EventName"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:background="#f5d442"
                         android:layout_gravity="center_horizontal"
                         android:fontFamily="sans-serif"
-                        android:textStyle="bold"
                         android:paddingLeft="@dimen/content_inset"
                         android:paddingRight="@dimen/content_inset"
                         android:text="Event Name"
-                        android:textColor="@android:color/black"
+                        android:textColor="?android:textColorPrimary"
                         android:textAlignment="center"
                         android:textSize="18sp" />
-
                     </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/card2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/card1"
-                app:cardCornerRadius="10dp"
-                android:layout_marginStart="30dp"
-                android:layout_marginTop="12dp"
-                android:layout_marginEnd="30dp"
-                android:layout_marginBottom="10dp"
-                card_view:cardElevation="@dimen/cards_elevation">
-
                 <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:background="@drawable/border_blue_10"
+                    android:layout_below="@id/card1"
                     android:padding="12dp">
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_below="@id/EventBanner"
+                        android:lineSpacingMultiplier="1.1"
+                        android:paddingLeft="@dimen/content_inset"
+                        android:paddingRight="@dimen/content_inset"
+                        android:layout_marginTop="12dp"
+                        android:textAlignment="center"
+                        android:text="Description heresjdflk;asjdflkjsdfkljakfljalk;fj;alkjf;kjsdkjl;asjdkja;kjd;kajsfd;kjsaf;kjsd;fkj;kjfrwo;iruw;ofjesdcjklj;ldsfj;askjfd;kjdf;kjsdfa;jk"
+                        android:textColor="?android:textColorPrimary"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:lineSpacingMultiplier="1.1"
                         android:layout_gravity="center_horizontal"
                         android:fontFamily="sans-serif"
-                        android:paddingLeft="2dp"
-                        android:paddingRight="2dp"
+                        android:paddingLeft="@dimen/content_inset"
+                        android:paddingRight="@dimen/content_inset"
+                        android:layout_marginTop="30dp"
                         android:text="Time:"
-                        android:textColor="@android:color/black"
+                        android:textColor="?android:textColorPrimary"
                         android:textSize="16sp" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:lineSpacingMultiplier="1.1"
-                        android:paddingLeft="2dp"
-                        android:paddingRight="2dp"
+                        android:paddingLeft="@dimen/content_inset"
+                        android:paddingRight="@dimen/content_inset"
                         android:layout_marginTop="12dp"
                         android:text="Venue:"
-                        android:textColor="@android:color/black"
+                        android:textColor="?android:textColorPrimary"
                         android:textSize="16sp" />
                 </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/card2"
-                app:cardCornerRadius="10dp"
-                android:layout_marginStart="30dp"
-                android:layout_marginTop="12dp"
-                android:layout_marginEnd="30dp"
-                android:layout_marginBottom="10dp"
-                card_view:cardElevation="@dimen/cards_elevation">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:background="@drawable/border_blue_10"
-                    android:padding="12dp">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:lineSpacingMultiplier="1.1"
-                        android:paddingLeft="2dp"
-                        android:paddingRight="2dp"
-                        android:layout_marginTop="5dp"
-                        android:text="Description here\nnew line\nanother line\none more line"
-                        android:textColor="@android:color/black"
-                        android:textSize="16sp" />
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
 
 
         </RelativeLayout>
+    </LinearLayout>
+
 </LinearLayout>

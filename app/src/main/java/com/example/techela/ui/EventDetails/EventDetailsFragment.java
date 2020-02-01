@@ -7,12 +7,8 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.DefaultItemAnimator;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.techela.R;
-import com.example.techela.ui.home.RecyclerAdapter;
 
 public class EventDetailsFragment extends Fragment {
 
