@@ -3,6 +3,8 @@ package com.example.techela;
 import android.os.Bundle;
 
 import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -53,5 +55,21 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
+    }
+
+    @Override
+    public void onBackPressed() {
+
+        int count = getSupportFragmentManager().getBackStackEntryCount();
+
+        if (count == 0) {
+            super.onBackPressed();
+        } else {
+            FragmentManager fm = getSupportFragmentManager();
+            for(int i = 0; i < fm.getBackStackEntryCount(); ++i) {
+                fm.popBackStack();
+            }
+        }
+
     }
 }
