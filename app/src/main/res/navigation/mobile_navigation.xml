@@ -9,4 +9,11 @@
         android:name="com.example.techela.ui.home.HomeFragment"
         android:label="@string/menu_events"
         tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/qr_code"
+        android:name="com.example.techela.ui.GoogleForm.GoogleFormFragment"
+        android:label="@string/register"
+        tools:layout="@layout/google_form" />
+
 </navigation>

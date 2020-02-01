@@ -8,6 +8,11 @@
             android:id="@+id/events"
             android:icon="@drawable/ic_menu_camera"
             android:title="@string/menu_events" />
+
+        <item
+            android:id="@+id/qr_code"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="@string/register" />
     </group>
 
 </menu>
