@@ -26,4 +26,6 @@ public class EventDetailsFragment extends Fragment {
 
         return root;
     }
+
+
 }
