@@ -1,6 +1,7 @@
 package com.example.techela.ui.home;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,10 +9,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.techela.R;
+import com.example.techela.ui.EventDetails.EventDetailsFragment;
 
 
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHolder> {
@@ -21,12 +25,14 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
     private final int[] EventPic;
     private final int[] EventBanner;
     private static LayoutInflater inflater = null;
+    private FragmentActivity context;
 
     RecyclerAdapter(FragmentActivity Activity, String[] EventName, String[] EventDesc, int[] EventPic, int[] EventBanner) {
         this.EventName = EventName;
         this.EventDesc = EventDesc;
         this.EventPic = EventPic;
         this.EventBanner = EventBanner;
+        this.context = Activity;
         inflater = (LayoutInflater) ((Context) Activity).getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
@@ -46,7 +52,13 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // TODO: Set onClicks
+                EventDetailsFragment nextFrag= new EventDetailsFragment();
+                context.getSupportFragmentManager().beginTransaction()
+                        .setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_in_left,
+                                android.R.anim.slide_out_right, android.R.anim.slide_out_right )
+                        .replace(R.id.nav_host_fragment, nextFrag, null)
+                        .addToBackStack(null)
+                        .commit();
             }
         });
     }
