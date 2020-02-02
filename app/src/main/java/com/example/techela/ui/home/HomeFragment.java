@@ -81,8 +81,8 @@ public class HomeFragment extends Fragment {
 
 
         int[] bgimageArray = new int[]{
-                R.drawable.placeholder_banner,
-                R.drawable.placeholder_banner,
+                R.drawable.pubg3,
+                R.drawable.csgo3,
                 R.drawable.placeholder_banner,
                 R.drawable.placeholder_banner,
                 R.drawable.placeholder_banner,
@@ -92,8 +92,8 @@ public class HomeFragment extends Fragment {
         };
 
         int[] imageArray = new int[]{
-                R.drawable.placeholder,
-                R.drawable.placeholder,
+                R.drawable.pubglogo2,
+                R.drawable.csgologo2,
                 R.drawable.placeholder,
                 R.drawable.placeholder,
                 R.drawable.placeholder,
