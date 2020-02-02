@@ -16,4 +16,10 @@
         android:label="@string/register"
         tools:layout="@layout/google_form" />
 
+    <fragment
+        android:id="@+id/gallery"
+        android:name="com.example.techela.ui.Gallery.GalleryFragment"
+        android:label="@string/gallery"
+        tools:layout="@layout/fragment_gallery" />
+
 </navigation>

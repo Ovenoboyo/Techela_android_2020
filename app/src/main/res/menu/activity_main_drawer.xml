@@ -13,6 +13,11 @@
             android:id="@+id/qr_code"
             android:icon="@drawable/ic_register"
             android:title="@string/register" />
+
+        <item
+            android:id="@+id/gallery"
+            android:icon="@drawable/ic_register"
+            android:title="@string/gallery" />
     </group>
 
 </menu>

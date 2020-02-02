@@ -27,7 +27,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
     private static LayoutInflater inflater = null;
     private FragmentActivity context;
 
-    RecyclerAdapter(FragmentActivity Activity, String[] EventName, String[] EventDesc, int[] EventPic, int[] EventBanner) {
+    public RecyclerAdapter(FragmentActivity Activity, String[] EventName, String[] EventDesc, int[] EventPic, int[] EventBanner) {
         this.EventName = EventName;
         this.EventDesc = EventDesc;
         this.EventPic = EventPic;
