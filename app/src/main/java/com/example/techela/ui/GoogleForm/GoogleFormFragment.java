@@ -11,11 +11,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.techela.MainActivity;
 import com.example.techela.R;
 import com.example.techela.ui.home.RecyclerAdapter;
 
@@ -30,6 +32,8 @@ public class GoogleFormFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.google_form, container, false);
+        Toolbar toolbar = ((MainActivity)getActivity()).getToolbar();
+        toolbar.setTitle("Register");
 //        TextView formLink = root.findViewById(R.id.form_link);
 //        formLink.setText(Objects.requireNonNull(getActivity()).getString(R.string.open_link));
 

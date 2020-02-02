@@ -9,11 +9,13 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.techela.MainActivity;
 import com.example.techela.R;
 
 public class HomeFragment extends Fragment {
@@ -24,6 +26,8 @@ public class HomeFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
+        Toolbar toolbar = ((MainActivity)getActivity()).getToolbar();
+        toolbar.setTitle("Events");
         View root = inflater.inflate(R.layout.fragment_home, container, false);
         com.github.clans.fab.FloatingActionButton fab_instagram = root.findViewById(R.id.fab_insta);
         com.github.clans.fab.FloatingActionButton fab_website = root.findViewById(R.id.fab_website);
