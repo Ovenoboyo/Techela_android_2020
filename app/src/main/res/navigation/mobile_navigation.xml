@@ -22,4 +22,9 @@
         android:label="@string/gallery"
         tools:layout="@layout/fragment_gallery" />
 
+    <fragment
+        android:id="@+id/share"
+        android:name="com.example.techela.Share"
+        android:label="@string/share" />
+
 </navigation>
