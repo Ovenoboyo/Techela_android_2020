@@ -131,11 +131,12 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:lineSpacingMultiplier="1.1"
+                        android:fontFamily="sans-serif-light"
                         android:paddingLeft="2dp"
                         android:paddingRight="2dp"
                         android:layout_marginTop="5dp"
                         android:text="Description here\nnew line\nanother line\none more line"
-                        android:textColor="@android:color/black"
+                        android:textColor="?android:textColorSecondary"
                         android:textSize="16sp" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
