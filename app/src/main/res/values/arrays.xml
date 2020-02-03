@@ -32,6 +32,7 @@
         <item>Event Time</item>
         <item>Event Time</item>
         <item>Event Time</item>
+    </string-array>
 
     <string-array name="event_desc" translatable="false">
         <item>Enirmity Awaits</item>
