@@ -6,12 +6,10 @@
         android:id="@+id/device_category_generic"
         android:title="Developers" >
         <Preference
+            android:key="ovenoboyo"
             android:icon="@drawable/developer"
             android:summary="App Developer"
             android:title="Sahil Gupte" >
-            <intent
-                android:action="android.intent.action.VIEW"
-                android:data="" />
         </Preference>
         <Preference
             android:icon="@drawable/developer"
