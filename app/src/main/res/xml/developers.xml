@@ -1,0 +1,25 @@
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="Contributors">
+
+    <PreferenceCategory
+        android:id="@+id/device_category_generic"
+        android:title="Developers" >
+        <Preference
+            android:icon="@drawable/developer"
+            android:summary="App Developer"
+            android:title="Sahil Gupte" >
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="" />
+        </Preference>
+        <Preference
+            android:icon="@drawable/developer"
+            android:summary="App Developer"
+            android:title="Ayush" >
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="" />
+        </Preference>
+    </PreferenceCategory>
+</PreferenceScreen>

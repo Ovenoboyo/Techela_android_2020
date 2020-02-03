@@ -13,6 +13,7 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.example.techela.ui.Contributors.ContributorsFragment;
+import com.example.techela.ui.Contributors.ContributorsPagerFragment;
 import com.example.techela.ui.home.HomeFragment;
 import com.google.android.material.navigation.NavigationView;
 
@@ -63,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == R.id.contributors) {
-            Fragment ContributorsFragment = new ContributorsFragment();
+            Fragment ContributorsFragment = new ContributorsPagerFragment();
             FragmentManager manager = getSupportFragmentManager();
             FragmentTransaction transaction = manager.beginTransaction();
             transaction.setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_in_left, android.R.anim.slide_out_right, android.R.anim.slide_out_right );
