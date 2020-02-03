@@ -27,4 +27,9 @@
         android:name="com.example.techela.Share"
         android:label="@string/share" />
 
+    <fragment
+        android:id="@+id/quiz"
+        android:name="com.example.techela.ui.Quiz.QuizFragment"
+        android:label="@string/quiz" />
+
 </navigation>

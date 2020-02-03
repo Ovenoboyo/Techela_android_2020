@@ -18,6 +18,11 @@
             android:id="@+id/gallery"
             android:icon="@drawable/ic_gallery"
             android:title="@string/gallery" />
+
+        <item
+            android:id="@+id/quiz"
+            android:icon="@drawable/ic_gallery"
+            android:title="@string/quiz" />
     </group>
 
     <item android:title="Communicate">
