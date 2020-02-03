@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -15,6 +16,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -27,6 +29,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.techela.MainActivity;
 import com.example.techela.R;
 import com.example.techela.ui.home.RecyclerAdapter;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -36,6 +45,7 @@ import java.util.Objects;
 public class QuizFragment extends Fragment implements View.OnClickListener {
 
     Map<Integer, QuestionsModel> QuestionsMap = new HashMap<>();
+    CountDownTimer mCountDownTimer;
     private int LAST_POSITION = 9; // 10 Questions
     private int FIRST_POSITION = 0;
     Map<Integer, Integer> AnswersMap = new HashMap<>();
@@ -64,6 +74,7 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
 
         quiz_title = root.findViewById(R.id.quiz_title);
         start = root.findViewById(R.id.btn_start);
+        start.setVisibility(View.GONE);
         next = root.findViewById(R.id.btn_next);
         prev = root.findViewById(R.id.btn_prev);
         submit = root.findViewById(R.id.submit);
@@ -100,6 +111,7 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
         Log.d("test", "DisplayQuestion: "+ position);
         quiz_title.setText(QuestionsMap.get(position).getQuestionString());
         ArrayList<String> options = QuestionsMap.get(position).getOptions();
+        Log.d("test", "DisplayQuestion: "+options);
         option0.setText(options.get(0));
         option1.setText(options.get(1));
         option2.setText(options.get(2));
@@ -157,16 +169,39 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
     }
 
     private void PopulateQuestions() {
-        for (int i = 0; i < 10; i++) {
-            this.QuestionsMap.put(i, new QuestionsModel(i, "this is a question", new ArrayList<String>() {
-                {
-                    add("option0");
-                    add("option1");
-                    add("option2");
-                    add("option3");
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        final FirebaseDatabase database = FirebaseDatabase.getInstance();
+        database.setPersistenceEnabled(true);
+        final DatabaseReference questionsNode = database.getReference("Quiz");
+        final DatabaseReference userNode = database.getReference(user.getUid());
+
+        questionsNode.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                String question = "";
+                int i = 0;
+                for (DataSnapshot questionNo : dataSnapshot.getChildren()) {
+                    ArrayList<String> options = new ArrayList<>();
+                    for (DataSnapshot details : questionNo.getChildren()) {
+                        if (details.getKey().compareTo("question") == 0) {
+                            question = details.getValue().toString();
+                        }
+                        if (details.getKey().matches(".*option.*")) {
+                            options.add(details.getValue().toString());
+                        }
+                    }
+                    QuestionsMap.put(i, new QuestionsModel(i, question, options));
+
+                    i++;
                 }
-            }));
-        }
+                start.setVisibility(View.VISIBLE);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
     }
 
     private void optionSelected(int position, int option, TextView selectedOption) {
