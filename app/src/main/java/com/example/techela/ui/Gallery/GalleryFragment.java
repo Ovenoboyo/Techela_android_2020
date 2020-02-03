@@ -51,6 +51,8 @@ public class GalleryFragment extends Fragment {
         pDialog = new ProgressDialog(this.getContext());
         images = new ArrayList<>();
         mAdapter = new GalleryAdapter(this.getContext(), images);
+        setHasOptionsMenu(true);
+        ((MainActivity) getActivity()).setDrawerEnabled(true);
 
         fetchImages();
 

@@ -44,8 +44,6 @@ public class DevelopersFragment extends PreferenceFragmentCompat {
         View view = super.onCreateView(inflater, container, savedInstanceState);
 
         view.setBackgroundColor(Color.WHITE);
-        Toolbar toolbar = ((MainActivity)getActivity()).getToolbar();
-        toolbar.setTitle("Contributors");
 
         return view;
     }

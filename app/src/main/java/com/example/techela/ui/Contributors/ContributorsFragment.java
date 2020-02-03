@@ -25,8 +25,7 @@ public class ContributorsFragment extends PreferenceFragmentCompat {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = super.onCreateView(inflater, container, savedInstanceState);
         view.setBackgroundColor(Color.WHITE);
-        Toolbar toolbar = ((MainActivity)getActivity()).getToolbar();
-        toolbar.setTitle("Contributors");
         return view;
     }
+
 }

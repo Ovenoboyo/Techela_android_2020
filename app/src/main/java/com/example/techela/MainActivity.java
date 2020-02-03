@@ -22,8 +22,10 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.FrameLayout;
 
 import java.util.List;
 import java.util.Objects;
@@ -32,6 +34,8 @@ public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
     private Toolbar toolbar;
+    ActionBarDrawerToggle mDrawerToggle;
+    DrawerLayout drawer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,8 +44,7 @@ public class MainActivity extends AppCompatActivity {
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         Objects.requireNonNull(getSupportActionBar()).setElevation(0);
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle mDrawerToggle;
+        drawer = findViewById(R.id.drawer_layout);
         mDrawerToggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.nav_app_bar_open_drawer_description, R.string.nav_app_bar_navigate_up_description);
         mDrawerToggle.setDrawerIndicatorEnabled(true);
         NavigationView navigationView = findViewById(R.id.nav_view);
@@ -66,6 +69,7 @@ public class MainActivity extends AppCompatActivity {
         if (item.getItemId() == R.id.contributors) {
             Fragment ContributorsFragment = new ContributorsPagerFragment();
             FragmentManager manager = getSupportFragmentManager();
+            manager.popBackStack();
             FragmentTransaction transaction = manager.beginTransaction();
             transaction.setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_in_left, android.R.anim.slide_out_right, android.R.anim.slide_out_right );
             transaction.replace(R.id.nav_host_fragment, ContributorsFragment);
@@ -96,8 +100,15 @@ public class MainActivity extends AppCompatActivity {
                     .setPositiveButton(android.R.string.yes, (arg0, arg1) -> Objects.requireNonNull(this).finish()).create().show();
         } else {
             FragmentManager fm = getSupportFragmentManager();
-            for(int i = 0; i < fm.getBackStackEntryCount(); ++i) {
-                fm.popBackStack();
+            Fragment HomeFragment = new HomeFragment();
+            FragmentTransaction transaction = fm.beginTransaction();
+            transaction.replace(R.id.nav_host_fragment, HomeFragment);
+            transaction.commit();
+
+            for (Object f: fm.getFragments()) {
+                Log.d("test", "onBackPressed: "+f);
+                if (f instanceof ContributorsPagerFragment)
+                    toolbar.setTitle("Events");
             }
         }
 
@@ -105,5 +116,12 @@ public class MainActivity extends AppCompatActivity {
 
     public Toolbar getToolbar(){
         return toolbar;
+    }
+
+    public void setDrawerEnabled(boolean enabled) {
+        int lockMode = enabled ? DrawerLayout.LOCK_MODE_UNLOCKED :
+                DrawerLayout.LOCK_MODE_LOCKED_CLOSED;
+        drawer.setDrawerLockMode(lockMode);
+        mDrawerToggle.setDrawerIndicatorEnabled(enabled);
     }
 }

@@ -2,16 +2,20 @@ package com.example.techela.ui.Contributors;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
+import com.example.techela.MainActivity;
 import com.example.techela.R;
 
 public class ContributorsPagerFragment extends Fragment{
@@ -21,13 +25,20 @@ public class ContributorsPagerFragment extends Fragment{
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true);
+        FragmentManager fm = getParentFragmentManager();
+
+        ((MainActivity) getActivity()).setDrawerEnabled(false);
     }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        Toolbar toolbar = ((MainActivity)getActivity()).getToolbar();
+        toolbar.setTitle("Contributors");
         View view = inflater.inflate(R.layout.contributions, container, false);
         ViewPager vpPager = view.findViewById(R.id.vpPager);
+
         adapterViewPager = new MyPagerAdapter(this.getChildFragmentManager());
         vpPager.setAdapter(adapterViewPager);
         return view;
@@ -70,5 +81,18 @@ public class ContributorsPagerFragment extends Fragment{
                     return "Developers";
             }
         }
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+        menu.clear();
+    }
+
+
+
+    @Override
+    public void onPrepareOptionsMenu(Menu menu) {
+        super.onPrepareOptionsMenu(menu);
     }
 }

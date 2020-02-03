@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DefaultItemAnimator;
@@ -24,6 +25,13 @@ import com.example.techela.ui.home.RecyclerAdapter;
 import java.util.Objects;
 
 public class GoogleFormFragment extends Fragment {
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true);
+        ((MainActivity) getActivity()).setDrawerEnabled(true);
+    }
 
     public GoogleFormFragment() {
         // Required empty public constructor

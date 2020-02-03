@@ -19,5 +19,13 @@
                 android:action="android.intent.action.VIEW"
                 android:data="" />
         </Preference>
+        <Preference
+            android:icon="@drawable/developer"
+            android:summary="App Developer"
+            android:title="Srijan Chadha" >
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="" />
+        </Preference>
     </PreferenceCategory>
 </PreferenceScreen>

@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DefaultItemAnimator;
@@ -24,10 +25,15 @@ public class HomeFragment extends Fragment {
         // Required empty public constructor
     }
 
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true);
+        ((MainActivity) getActivity()).setDrawerEnabled(true);
+    }
+
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        Toolbar toolbar = ((MainActivity)getActivity()).getToolbar();
-        toolbar.setTitle("Events");
         View root = inflater.inflate(R.layout.fragment_home, container, false);
         com.github.clans.fab.FloatingActionButton fab_instagram = root.findViewById(R.id.fab_insta);
         com.github.clans.fab.FloatingActionButton fab_website = root.findViewById(R.id.fab_website);
