@@ -12,24 +12,17 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string-array name="event_title" translatable="false">
-        <item>Event1</item>
-        <item>Event2</item>
-        <item>Event3</item>
-        <item>Event4</item>
-        <item>Event5</item>
-        <item>Event6</item>
-        <item>Event7</item>
+        <item>PUBG</item>
+        <item>CS GO</item>
+        <item>COD(Mobile)</item>
+        <item>Mini Militia</item>
+        <item>Clash Royale</item>
+        <item>Rainbow six</item>
+        <item>Slow Cycle Race</item>
+        <item>No Fire Cooking</item>
+        <item>Physiothon</item>
     </string-array>
 
-    <string-array name="event_desc" translatable="false">
-        <item>Event Desc</item>
-        <item>Event Desc</item>
-        <item>Event Desc</item>
-        <item>Event Desc</item>
-        <item>Event Desc</item>
-        <item>Event Desc</item>
-        <item>Event Desc</item>
-    </string-array>
 
     <string-array name="event_time" translatable="false">
         <item>Event Time</item>
@@ -39,6 +32,17 @@
         <item>Event Time</item>
         <item>Event Time</item>
         <item>Event Time</item>
+
+    <string-array name="event_desc" translatable="false">
+        <item>Enirmity Awaits</item>
+        <item>Fire in the Hole</item>
+        <item>When Duty Calls</item>
+        <item>Team up for the most classic game</item>
+        <item>Only one can be the true Winner</item>
+        <item>Just Stand Still</item>
+        <item>Go Slow(in a stop sign)/not fast not furious</item>
+        <item>Turn down the Heat</item>
+        <item>Fit and Wit</item>
 
 
     </string-array>
