@@ -11,7 +11,8 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_marginBottom="50dp">
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -24,7 +25,6 @@
                 android:layout_height="250dp">
 
                 <ImageView
-
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:scaleType="centerCrop"
@@ -74,9 +74,8 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/card1"
                 app:cardCornerRadius="10dp"
-                android:layout_marginStart="30dp"
+                android:layout_margin="@dimen/cards_margin"
                 android:layout_marginTop="12dp"
-                android:layout_marginEnd="30dp"
                 android:layout_marginBottom="10dp"
                 card_view:cardElevation="@dimen/cards_elevation">
 
@@ -117,9 +116,8 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/card2"
                 app:cardCornerRadius="10dp"
-                android:layout_marginStart="30dp"
+                android:layout_margin="@dimen/cards_margin"
                 android:layout_marginTop="12dp"
-                android:layout_marginEnd="30dp"
                 android:layout_marginBottom="10dp"
                 card_view:cardElevation="@dimen/cards_elevation">
 
@@ -151,6 +149,7 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_alignParentBottom="true"
+        android:elevation="18dp"
         android:background="@color/colorPrimary">
 
         <TextView
