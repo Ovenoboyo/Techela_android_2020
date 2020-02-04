@@ -1,5 +1,6 @@
 package com.example.techela;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -20,6 +21,8 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.example.techela.ui.Contributors.ContributorsPagerFragment;
 import com.example.techela.ui.home.HomeFragment;
+import com.google.android.gms.common.api.CommonStatusCodes;
+import com.google.android.gms.vision.barcode.Barcode;
 import com.google.android.material.navigation.NavigationView;
 
 import java.util.Objects;
