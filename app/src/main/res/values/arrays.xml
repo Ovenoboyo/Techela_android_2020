@@ -17,7 +17,7 @@
         <item>COD(Mobile)</item>
         <item>Mini Militia</item>
         <item>Clash Royale</item>
-        <item>Rainbow six</item>
+        <item>Rainbow Six Siege</item>
         <item>FIFA</item>
         <item>Physiothon</item>
         <item>Treasure Hunt</item>
@@ -36,13 +36,13 @@
     </string-array>
 
     <string-array name="event_desc" translatable="false">
-        <item>Enirmity Awaits. Team TPS Game (Mobile)</item>
-        <item>Fire in the Hole. Team FPS Game</item>
+        <item>Enirmity Awaits.PUBG (mobile) tournament . Bring your squad and join the group. Team TPS Game (Mobile)</item>
+        <item>Fire in the Hole. The most awaited gaming event is here. Get your squad together for the ultimate battle of *CS GO* Join us this TECHELA on 12th and 13th. AMAZING *CASH PRIZES* FOR *1ST* AND *2ND* WINNERS UPTO *₹ 2500*.  Team FPS Game.</item>
         <item>When Duty Calls. Team FPS Game (Mobile)</item>
-        <item>Gear up for the most classic game. Solo Game (Mobile)</item>
-        <item>Only one can be the true Winner. Solo Game (Mobile)</item>
-        <item>Just Stand Still. Team FPS Game</item>
-        <item>FIFA 19/20</item>
+        <item>Gear up for the most classic game. *Mini Militia* has already made a name for itself. Be a part of this Gaming Event and *Exciting Rewards* awaits you. Solo Game (Mobile).</item>
+        <item>Only one can be the true Winner. It will have CashPrizes worth *Rupee 1500* and some Exciting *Vouchers*. Join and be a part of our *Clan*. Solo Game (Mobile).</item>
+        <item>Just Stand Still. It will have CashPrizes worth Rupees 2500 and some Exiting Vouchers. Join and be a part of our SQUAD. Team FPS Game.</item>
+        <item>FIFA 19/20. Its that time of the year again. So put on your virtual kits, plug in your gaming gear and Lets football! Techela-20 brings to you FIFA. Can you give Liverpool their first defeat of the season? Can you stop Haaland and Sancho? Beat your way to the top to win amazing cash prizes of ₹1000 and ₹500 for champion and runner-up. Join the group to register. Dont miss out!</item>
         <item>Fit and Wit. Consist of technical(will do certain activity and simultaneously tell the code) and non technical person (will performcoding).(30 minutes approx.)</item>
         <item>Rise N Shine. Its HUNTING TIME. QR Code based treasure hunt.</item>
         <item>Go Slow(in a stop sign)/not fast not furious. Cycling Race with a twist</item>
