@@ -9,17 +9,27 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.techela.MainActivity;
 import com.example.techela.R;
 
 public class HomeFragment extends Fragment {
 
     public HomeFragment() {
         // Required empty public constructor
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true);
+        ((MainActivity) getActivity()).setDrawerEnabled(true);
     }
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -67,7 +77,7 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(Intent.ACTION_VIEW,
-                        Uri.parse("Website link goes here")));
+                        Uri.parse("https://www.google.com")));
             }
         });
         RecyclerView recyclerView = root.findViewById(R.id.eventsView);
@@ -79,6 +89,10 @@ public class HomeFragment extends Fragment {
 
         String[] listArray2 = getResources().getStringArray(R.array.event_desc);
 
+        String[] listArray3 = getResources().getStringArray(R.array.event_time);
+
+        String[] listArray4 = getResources().getStringArray(R.array.event_venue);
+
 
         int[] bgimageArray = new int[]{
                 R.drawable.pubg3,
@@ -87,15 +101,20 @@ public class HomeFragment extends Fragment {
                 R.drawable.mini1,
                 R.drawable.cr1,
                 R.drawable.rainbow1,
-                R.drawable.images1,
-                R.drawable.placeholder_banner,
-                R.drawable.placeholder_banner,
-                R.drawable.placeholder_banner,
-                R.drawable.placeholder_banner,
-                R.drawable.placeholder_banner,
-                R.drawable.placeholder_banner,
-                R.drawable.placeholder_banner,
-                R.drawable.placeholder_banner
+                R.drawable.fifa1,
+                R.drawable.physioyhon,
+                R.drawable.treasurehunt,
+                R.drawable.slowbikerace,
+                R.drawable.sherlock,
+                R.drawable.guestspeaker1,
+                R.drawable.quizlogo,
+                R.drawable.quizlogo,
+                R.drawable.gamejam1,
+                R.drawable.graphic1,
+                R.drawable.techprojectslogo,
+                R.drawable.techprojectslogo,
+                R.drawable.keynote,
+                R.drawable.student
 
         };
 
@@ -106,18 +125,23 @@ public class HomeFragment extends Fragment {
                 R.drawable.mnlogo1,
                 R.drawable.crlogo1,
                 R.drawable.rainbowlogo1,
+                R.drawable.fifilogo1,
+                R.drawable.p,
+                R.drawable.treasurelogo1,
                 R.drawable.slowcyclelogo1,
-                R.drawable.placeholder,
-                R.drawable.placeholder,
-                R.drawable.placeholder,
-                R.drawable.placeholder,
-                R.drawable.placeholder,
-                R.drawable.placeholder,
-                R.drawable.placeholder,
-                R.drawable.placeholder
+                R.drawable.escapelogo,
+                R.drawable.speaklogo,
+                R.drawable.techlogo,
+                R.drawable.techlogo,
+                R.drawable.gjlogo1,
+                R.drawable.techlogo,
+                R.drawable.techlogo,
+                R.drawable.techlogo,
+                R.drawable.speaklogo,
+                R.drawable.techlogo
         };
 
-        recyclerView.setAdapter(new RecyclerAdapter(getActivity(), listArray1, listArray2, imageArray, bgimageArray));
+        recyclerView.setAdapter(new RecyclerAdapter(getActivity(), listArray1, listArray2, imageArray, bgimageArray, listArray3, listArray4));
         recyclerView.setNestedScrollingEnabled(true);
         return root;
     }

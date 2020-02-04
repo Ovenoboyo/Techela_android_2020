@@ -11,7 +11,6 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- Maintainers -->
     <string-array name="event_title" translatable="false">
         <item>PUBG</item>
         <item>CS GO</item>
@@ -19,26 +18,94 @@
         <item>Mini Militia</item>
         <item>Clash Royale</item>
         <item>Rainbow six</item>
-        <item>Slow Cycle Race</item>
-        <item>No Fire Cooking</item>
+        <item>FIFA</item>
         <item>Physiothon</item>
-
+        <item>Treasure Hunt</item>
+        <item>Slow Cycle Race</item>
+        <item>Sherlock Escape</item>
+        <item>Guest Speaker</item>
+        <item>Faculty Quizzes</item>
+        <item>Student Quizzes</item>
+        <item>Game Jam</item>
+        <item>Graphic Designing</item>
+        <item>TechProject (1st and 2nd years)</item>
+        <item>TechProject (Faculty)</item>
+        <item>Keynote</item>
+        <item>Blind Formating</item>
 
     </string-array>
 
-    <!-- Devices maintained by maintainer -->
     <string-array name="event_desc" translatable="false">
-        <item>Enirmity Awaits</item>
-        <item>Fire in the Hole</item>
-        <item>When Duty Calls</item>
-        <item>Team up for the most classic game</item>
-        <item>Only one can be the true Winner</item>
-        <item>Just Stand Still</item>
-        <item>Go Slow(in a stop sign)/not fast not furious</item>
-        <item>Turn down the Heat</item>
-        <item>Fit and Wit</item>
+        <item>Enirmity Awaits. Team TPS Game (Mobile)</item>
+        <item>Fire in the Hole. Team FPS Game</item>
+        <item>When Duty Calls. Team FPS Game (Mobile)</item>
+        <item>Gear up for the most classic game. Solo Game (Mobile)</item>
+        <item>Only one can be the true Winner. Solo Game (Mobile)</item>
+        <item>Just Stand Still. Team FPS Game</item>
+        <item>FIFA 19/20</item>
+        <item>Fit and Wit. Consist of technical(will do certain activity and simultaneously tell the code) and non technical person (will performcoding).(30 minutes approx.)</item>
+        <item>Rise N Shine. Its HUNTING TIME. QR Code based treasure hunt.</item>
+        <item>Go Slow(in a stop sign)/not fast not furious. Cycling Race with a twist</item>
+        <item>Escape Room (40 minutes approx)</item>
+        <item>Session from Speaker</item>
+        <item>Quiz will consists questions from students, faculty, director.</item>
+        <item>Quiz will consists questions from students, faculty, director.</item>
+        <item>Jam</item>
+        <item>A mint of Creativity. An item will be given and you need to design it in photoshop.</item>
+        <item>For all colleges. The group needs to showcase their models/ projects.</item>
+        <item>The group needs to showcase their models/ projects.</item>
+        <item>Session from Speaker</item>
+        <item>Monitor will be turned off. Participant will type a given para with very few errors.</item>
+
+    </string-array>
+
+    <string-array name="event_time" translatable="false">
+        <item>Event Time</item>
+        <item>Event Time</item>
+        <item>Event Time</item>
+        <item>Event Time</item>
+        <item>Event Time</item>
+        <item>Event Time</item>
+        <item>Event Time</item>
+        <item>Event Time</item>
+        <item>Event Time</item>
+        <item>Event Time</item>
+        <item>Event Time</item>
+        <item>Event Time</item>
+        <item>Event Time</item>
+        <item>Event Time</item>
+        <item>Event Time</item>
+        <item>Event Time</item>
+        <item>Event Time</item>
+        <item>Event Time</item>
+        <item>Event Time</item>
+        <item>Event Time</item>
 
 
     </string-array>
+    <string-array name="event_venue" translatable="false">
+        <item>Event Venue</item>
+        <item>Event Venue</item>
+        <item>Event Venue</item>
+        <item>Event Venue</item>
+        <item>Event Venue</item>
+        <item>Event Venue</item>
+        <item>Event Venue</item>
+        <item>Event Venue</item>
+        <item>Event Venue</item>
+        <item>Event Venue</item>
+        <item>Event Venue</item>
+        <item>Event Venue</item>
+        <item>Event Venue</item>
+        <item>Event Venue</item>
+        <item>Event Venue</item>
+        <item>Event Venue</item>
+        <item>Event Venue</item>
+        <item>Event Venue</item>
+        <item>Event Venue</item>
+        <item>Event Venue</item>
+
+    </string-array>
+
 
 </resources>

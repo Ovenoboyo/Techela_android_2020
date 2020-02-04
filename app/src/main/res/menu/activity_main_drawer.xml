@@ -16,6 +16,25 @@
             android:id="@+id/qr_code"
             android:icon="@drawable/ic_register"
             android:title="@string/register" />
+
+        <item
+            android:id="@+id/gallery"
+            android:icon="@drawable/ic_gallery"
+            android:title="@string/gallery" />
+
+        <item
+            android:id="@+id/quiz"
+            android:icon="@drawable/ic_gallery"
+            android:title="@string/quiz" />
     </group>
+
+    <item android:title="Communicate">
+        <menu>
+            <item
+                android:id="@+id/share"
+                android:icon="@drawable/ic_share"
+                android:title="@string/share" />
+        </menu>
+    </item>
 
 </menu>

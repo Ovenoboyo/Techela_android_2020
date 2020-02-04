@@ -1,14 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#f0f0f0"
     android:clickable="true"
     android:focusable="false"
-    xmlns:card_view="http://schemas.android.com/tools">
-    <!--    android:background="#ECECEC"-->
+    xmlns:card_view="http://schemas.android.com/tools"
+    android:orientation="vertical">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="50dp">
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -21,7 +25,7 @@
                 android:layout_height="250dp">
 
                 <ImageView
-
+                    android:id="@+id/eventBanner"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:scaleType="centerCrop"
@@ -49,7 +53,7 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/EventName"
+                        android:id="@+id/eventName"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
@@ -71,9 +75,8 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/card1"
                 app:cardCornerRadius="10dp"
-                android:layout_marginStart="30dp"
+                android:layout_margin="@dimen/cards_margin"
                 android:layout_marginTop="12dp"
-                android:layout_marginEnd="30dp"
                 android:layout_marginBottom="10dp"
                 card_view:cardElevation="@dimen/cards_elevation">
 
@@ -85,6 +88,7 @@
                     android:padding="12dp">
 
                     <TextView
+                        android:id="@+id/eventTime"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@id/EventBanner"
@@ -97,6 +101,7 @@
                         android:textSize="16sp" />
 
                     <TextView
+                        android:id="@+id/eventVenue"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:lineSpacingMultiplier="1.1"
@@ -114,9 +119,8 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/card2"
                 app:cardCornerRadius="10dp"
-                android:layout_marginStart="30dp"
+                android:layout_margin="@dimen/cards_margin"
                 android:layout_marginTop="12dp"
-                android:layout_marginEnd="30dp"
                 android:layout_marginBottom="10dp"
                 card_view:cardElevation="@dimen/cards_elevation">
 
@@ -128,6 +132,7 @@
                     android:padding="12dp">
 
                     <TextView
+                        android:id="@+id/eventDesc"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:lineSpacingMultiplier="1.1"
@@ -143,4 +148,22 @@
 
 
         </RelativeLayout>
-</LinearLayout>
+    </ScrollView>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:elevation="18dp"
+        android:background="@color/colorPrimary">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="@string/tickets"
+            android:textAlignment="center"
+            android:textColor="@android:color/white"
+            android:textSize="18sp" />
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -1,0 +1,41 @@
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="Contributors">
+
+    <PreferenceCategory
+        android:id="@+id/device_category_generic"
+        android:title="Technical Team" >
+        <Preference
+            android:icon="@drawable/ic_person"
+            android:summary="Hes a good guy"
+            android:title="Some guy" >
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="" />
+        </Preference>
+        <Preference
+            android:icon="@drawable/ic_person"
+            android:summary="good guy"
+            android:title="Some guy" >
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="" />
+        </Preference>
+        <Preference
+            android:icon="@drawable/ic_person"
+            android:summary="somewhat good guy"
+            android:title="Some guy" >
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="" />
+        </Preference>
+        <Preference
+            android:icon="@drawable/ic_person"
+            android:summary="meh"
+            android:title="Some guy" >
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="" />
+        </Preference>>
+    </PreferenceCategory>
+</PreferenceScreen>
