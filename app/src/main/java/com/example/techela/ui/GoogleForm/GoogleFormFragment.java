@@ -9,6 +9,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -44,6 +45,15 @@ public class GoogleFormFragment extends Fragment {
         View root = inflater.inflate(R.layout.google_form, container, false);
         Toolbar toolbar = ((MainActivity)getActivity()).getToolbar();
         toolbar.setTitle("Register");
+
+        Button scan = root.findViewById(R.id.qr_code);
+        scan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(GoogleFormFragment.this.getContext(), BarcodeCaptureActivity.class);
+                startActivity(intent);
+            }
+        });
 //        TextView formLink = root.findViewById(R.id.form_link);
 //        formLink.setText(Objects.requireNonNull(getActivity()).getString(R.string.open_link));
 
@@ -54,10 +64,6 @@ public class GoogleFormFragment extends Fragment {
 //                startActivity(browserIntent);
 //            }
 //        });
-
-        ImageView formQr = root.findViewById(R.id.qr_code);
-        Drawable qr = getResources().getDrawable(R.drawable.qr_code, Objects.requireNonNull(getActivity()).getTheme());
-        formQr.setImageDrawable(qr);
 
         return root;
     }

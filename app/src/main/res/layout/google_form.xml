@@ -5,15 +5,14 @@
     android:layout_height="match_parent"
     android:background="#ffffff">
 
-    <ImageView
+    <Button
         android:id="@+id/qr_code"
         android:layout_width="350dp"
         android:layout_height="350dp"
         android:layout_marginTop="100dp"
         android:layout_marginBottom="20dp"
         android:layout_centerHorizontal="true"
-        app:srcCompat="@drawable/placeholder"
-        android:contentDescription="@string/qr_code_desc" />
+        android:text="Scan QR Code"/>
 
 <!--    <TextView-->
 <!--        android:id="@+id/form_link"-->
