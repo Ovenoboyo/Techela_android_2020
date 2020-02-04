@@ -1,6 +1,7 @@
 package com.example.techela.ui.home;
 
 import android.content.Context;
+import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,16 +23,20 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
 
     private final String[] EventName;
     private final String[] EventDesc;
+    private final String[] EventTime;
+    private final String[] EventVenue;
     private final int[] EventPic;
     private final int[] EventBanner;
     private static LayoutInflater inflater = null;
     private FragmentActivity context;
 
-    public RecyclerAdapter(FragmentActivity Activity, String[] EventName, String[] EventDesc, int[] EventPic, int[] EventBanner) {
+    public RecyclerAdapter(FragmentActivity Activity, String[] EventName, String[] EventDesc, int[] EventPic, int[] EventBanner, String[] EventTime, String[] EventVenue) {
         this.EventName = EventName;
         this.EventDesc = EventDesc;
         this.EventPic = EventPic;
         this.EventBanner = EventBanner;
+        this.EventTime = EventTime;
+        this.EventVenue = EventVenue;
         this.context = Activity;
         inflater = (LayoutInflater) ((Context) Activity).getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
@@ -53,6 +58,13 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
             @Override
             public void onClick(View v) {
                 EventDetailsFragment nextFrag= new EventDetailsFragment();
+                Bundle bundle = new Bundle();
+                bundle.putString("eventName", EventName[position]);
+                bundle.putString("eventDesc", EventDesc[position]);
+                bundle.putString("eventTime", EventTime[position]);
+                bundle.putString("eventVenue", EventVenue[position]);
+                bundle.putInt("eventBanner", EventBanner[position]);
+                nextFrag.setArguments(bundle);
                 context.getSupportFragmentManager().beginTransaction()
                         .setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_in_left,
                                 android.R.anim.slide_out_right, android.R.anim.slide_out_right )

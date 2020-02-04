@@ -25,6 +25,7 @@
                 android:layout_height="250dp">
 
                 <ImageView
+                    android:id="@+id/eventBanner"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:scaleType="centerCrop"
@@ -52,7 +53,7 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/EventName"
+                        android:id="@+id/eventName"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
@@ -87,6 +88,7 @@
                     android:padding="12dp">
 
                     <TextView
+                        android:id="@+id/eventTime"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@id/EventBanner"
@@ -99,6 +101,7 @@
                         android:textSize="16sp" />
 
                     <TextView
+                        android:id="@+id/eventVenue"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:lineSpacingMultiplier="1.1"
@@ -129,6 +132,7 @@
                     android:padding="12dp">
 
                     <TextView
+                        android:id="@+id/eventDesc"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:lineSpacingMultiplier="1.1"

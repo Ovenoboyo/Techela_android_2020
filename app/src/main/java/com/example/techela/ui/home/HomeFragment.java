@@ -77,7 +77,7 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(Intent.ACTION_VIEW,
-                        Uri.parse("Website link goes here")));
+                        Uri.parse("https://www.google.com")));
             }
         });
         RecyclerView recyclerView = root.findViewById(R.id.eventsView);
@@ -88,6 +88,10 @@ public class HomeFragment extends Fragment {
         String[] listArray1 = getResources().getStringArray(R.array.event_title);
 
         String[] listArray2 = getResources().getStringArray(R.array.event_desc);
+
+        String[] listArray3 = getResources().getStringArray(R.array.event_time);
+
+        String[] listArray4 = getResources().getStringArray(R.array.event_venue);
 
 
         int[] bgimageArray = new int[]{
@@ -111,7 +115,7 @@ public class HomeFragment extends Fragment {
                 R.drawable.placeholder
         };
 
-        recyclerView.setAdapter(new RecyclerAdapter(getActivity(), listArray1, listArray2, imageArray, bgimageArray));
+        recyclerView.setAdapter(new RecyclerAdapter(getActivity(), listArray1, listArray2, imageArray, bgimageArray, listArray3, listArray4));
         recyclerView.setNestedScrollingEnabled(true);
         return root;
     }
