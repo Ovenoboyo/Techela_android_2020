@@ -103,6 +103,7 @@ public class HomeFragment extends Fragment {
                 R.drawable.rainbow1,
                 R.drawable.images1,
                 R.drawable.placeholder_banner,
+                R.drawable.placeholder_banner,
 
         };
 
@@ -114,6 +115,7 @@ public class HomeFragment extends Fragment {
                 R.drawable.crlogo1,
                 R.drawable.rainbowlogo1,
                 R.drawable.slowcyclelogo1,
+                R.drawable.placeholder,
                 R.drawable.placeholder,
         };
 

@@ -1,5 +1,6 @@
 package com.example.techela.ui.Quiz;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
@@ -65,6 +66,7 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
     private int position = 0;
     ArrayList<String> keys = new ArrayList<>();
     View root;
+    ProgressDialog mProgressDialog;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -83,6 +85,14 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
         root = inflater.inflate(R.layout.quiz_fragment, container, false);
         Toolbar toolbar = ((MainActivity)getActivity()).getToolbar();
         toolbar.setTitle("Quiz");
+
+        if (mProgressDialog == null) {
+            mProgressDialog = new ProgressDialog(getContext());
+            mProgressDialog.setMessage("Getting data...");
+            mProgressDialog.setIndeterminate(true);
+        }
+
+        mProgressDialog.show();
 
         quiz_title = root.findViewById(R.id.quiz_title);
         end_quiz = root.findViewById(R.id.quiz_end);
@@ -289,6 +299,9 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
                 QuestionsMap = finalMap;
                 Log.d("test", "onDataChange: "+QuestionsMap);
                 start.setVisibility(View.VISIBLE);
+                if (mProgressDialog != null && mProgressDialog.isShowing()) {
+                    mProgressDialog.dismiss();
+                }
             }
 
             @Override

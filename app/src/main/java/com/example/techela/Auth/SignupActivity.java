@@ -19,6 +19,8 @@ import com.example.techela.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.Objects;
 
@@ -117,6 +119,10 @@ public class SignupActivity extends AppCompatActivity {
                         Log.d("SignUpActivity", "User profile updated.");
                     }
                 });
+
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference UserNamesNode = database.getReference("Usernames");
+        UserNamesNode.child(user.getUid()).setValue(Username);
 
     }
 
