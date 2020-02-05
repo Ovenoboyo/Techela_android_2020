@@ -65,6 +65,7 @@ public class GoogleFormFragment extends Fragment implements ZXingScannerView.Res
     private static final String SAVED_INSTANCE_URI = "uri";
     private static final String SAVED_INSTANCE_RESULT = "result";
     private ArrayList<String> barcodesList = new ArrayList<>();
+    private String googleForm = "https://docs.google.com/forms/d/e/1FAIpQLSfCNvyFKYyddYyVPpskXuB93cq-VIdDPVbk0LUr3wIyhZkcWw/viewform?vc=0&c=0&w=1";
     private FirebaseUser user;
 
     @Override
@@ -103,9 +104,16 @@ public class GoogleFormFragment extends Fragment implements ZXingScannerView.Res
         if (status != null) {
             push_status(status);
             getRemainingCodes();
+        } else if ((check_googleform(rawResult.getText()))) {
+            openForm();
         }
         Handler handler = new Handler();
         handler.postDelayed(() -> mScannerView.resumeCameraPreview(GoogleFormFragment.this), 2000);
+    }
+
+    private  void openForm() {
+        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(googleForm));
+        startActivity(browserIntent);
     }
 
     @Override
@@ -126,6 +134,10 @@ public class GoogleFormFragment extends Fragment implements ZXingScannerView.Res
         } else {
             return null;
         }
+    }
+
+    private boolean check_googleform(String barcode) {
+        return barcode.equals(googleForm);
     }
 
     private void push_status(String uuid) {
