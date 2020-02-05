@@ -5,11 +5,11 @@ import android.util.Log;
 import java.util.ArrayList;
 
 public class QuestionsModel {
-    private int QuestionID;
+    private String QuestionID;
     private String QuestionString;
     private ArrayList<String> options;
 
-    public int getQuestionID() {
+    public String getQuestionID() {
         return QuestionID;
     }
 
@@ -17,7 +17,7 @@ public class QuestionsModel {
         return QuestionString;
     }
 
-    public QuestionsModel(int QuestionID, String QuestionString, ArrayList<String> options) {
+    public QuestionsModel(String QuestionID, String QuestionString, ArrayList<String> options) {
         Log.d("test", "QuestionsModel: "+options);
         this.QuestionID = QuestionID;
         this.QuestionString = QuestionString;
