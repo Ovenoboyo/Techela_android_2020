@@ -18,9 +18,11 @@ import androidx.viewpager.widget.ViewPager;
 import com.example.techela.MainActivity;
 import com.example.techela.R;
 
+import java.util.Objects;
+
 public class ContributorsPagerFragment extends Fragment{
 
-    FragmentPagerAdapter adapterViewPager;
+    private FragmentPagerAdapter adapterViewPager;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -28,13 +30,13 @@ public class ContributorsPagerFragment extends Fragment{
         setHasOptionsMenu(true);
         FragmentManager fm = getParentFragmentManager();
 
-        ((MainActivity) getActivity()).setDrawerEnabled(false);
+        ((MainActivity) Objects.requireNonNull(getActivity())).setDrawerEnabled(false);
     }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        Toolbar toolbar = ((MainActivity)getActivity()).getToolbar();
+        Toolbar toolbar = ((MainActivity) Objects.requireNonNull(getActivity())).getToolbar();
         toolbar.setTitle("Contributors");
         View view = inflater.inflate(R.layout.contributions, container, false);
         ViewPager vpPager = view.findViewById(R.id.vpPager);
@@ -45,20 +47,21 @@ public class ContributorsPagerFragment extends Fragment{
 
     }
 
-    public static class MyPagerAdapter extends FragmentPagerAdapter {
-        private static int NUM_ITEMS = 2;
+    static class MyPagerAdapter extends FragmentPagerAdapter {
 
-        public MyPagerAdapter(FragmentManager fragmentManager) {
+        MyPagerAdapter(FragmentManager fragmentManager) {
             super(fragmentManager);
         }
 
         // Returns total number of pages
         @Override
         public int getCount() {
+            int NUM_ITEMS = 2;
             return NUM_ITEMS;
         }
 
         // Returns the fragment to display for that page
+        @NonNull
         @Override
         public Fragment getItem(int position) {
             switch (position) {
@@ -84,7 +87,7 @@ public class ContributorsPagerFragment extends Fragment{
     }
 
     @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
         menu.clear();
     }
@@ -92,7 +95,7 @@ public class ContributorsPagerFragment extends Fragment{
 
 
     @Override
-    public void onPrepareOptionsMenu(Menu menu) {
+    public void onPrepareOptionsMenu(@NonNull Menu menu) {
         super.onPrepareOptionsMenu(menu);
     }
 }

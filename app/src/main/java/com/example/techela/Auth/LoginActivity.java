@@ -18,7 +18,6 @@ import com.example.techela.MainActivity;
 import com.example.techela.R;
 import com.google.firebase.auth.FirebaseAuth;
 
-import java.util.MissingFormatArgumentException;
 import java.util.Objects;
 
 public class LoginActivity extends AppCompatActivity {

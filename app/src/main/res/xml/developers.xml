@@ -2,9 +2,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:title="Contributors">
 
-    <PreferenceCategory
-        android:id="@+id/device_category_generic"
-        android:title="Developers" >
+    <PreferenceCategory android:title="Developers" >
         <Preference
             android:key="ovenoboyo"
             android:icon="@drawable/developer"

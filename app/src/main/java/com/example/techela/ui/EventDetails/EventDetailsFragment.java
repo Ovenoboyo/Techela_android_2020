@@ -44,7 +44,7 @@ public class EventDetailsFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_event_details, container, false);
-        Toolbar toolbar = ((MainActivity)getActivity()).getToolbar();
+        Toolbar toolbar = ((MainActivity) Objects.requireNonNull(getActivity())).getToolbar();
         toolbar.setTitle("Events");
 
         TextView eventNameT = root.findViewById(R.id.eventName);
@@ -65,7 +65,7 @@ public class EventDetailsFragment extends Fragment {
     }
 
     @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
         menu.clear();
     }
@@ -73,7 +73,7 @@ public class EventDetailsFragment extends Fragment {
 
 
     @Override
-    public void onPrepareOptionsMenu(Menu menu) {
+    public void onPrepareOptionsMenu(@NonNull Menu menu) {
         super.onPrepareOptionsMenu(menu);
     }
 

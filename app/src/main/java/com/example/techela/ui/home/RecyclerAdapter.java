@@ -2,7 +2,6 @@ package com.example.techela.ui.home;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,9 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
-import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.techela.R;
@@ -28,7 +25,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
     private final int[] EventPic;
     private final int[] EventBanner;
     private static LayoutInflater inflater = null;
-    private FragmentActivity context;
+    private final FragmentActivity context;
 
     public RecyclerAdapter(FragmentActivity Activity, String[] EventName, String[] EventDesc, int[] EventPic, int[] EventBanner, String[] EventTime, String[] EventVenue) {
         this.EventName = EventName;
@@ -54,24 +51,21 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
         holder.EventDesc.setText(EventDesc[position]);
         holder.EventPic.setImageResource(EventPic[position]);
         holder.EventBanner.setImageResource(EventBanner[position]);
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                EventDetailsFragment nextFrag= new EventDetailsFragment();
-                Bundle bundle = new Bundle();
-                bundle.putString("eventName", EventName[position]);
-                bundle.putString("eventDesc", EventDesc[position]);
-                bundle.putString("eventTime", EventTime[position]);
-                bundle.putString("eventVenue", EventVenue[position]);
-                bundle.putInt("eventBanner", EventBanner[position]);
-                nextFrag.setArguments(bundle);
-                context.getSupportFragmentManager().beginTransaction()
-                        .setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_in_left,
-                                android.R.anim.slide_out_right, android.R.anim.slide_out_right )
-                        .replace(R.id.nav_host_fragment, nextFrag, null)
-                        .addToBackStack(null)
-                        .commit();
-            }
+        holder.itemView.setOnClickListener(v -> {
+            EventDetailsFragment nextFrag= new EventDetailsFragment();
+            Bundle bundle = new Bundle();
+            bundle.putString("eventName", EventName[position]);
+            bundle.putString("eventDesc", EventDesc[position]);
+            bundle.putString("eventTime", EventTime[position]);
+            bundle.putString("eventVenue", EventVenue[position]);
+            bundle.putInt("eventBanner", EventBanner[position]);
+            nextFrag.setArguments(bundle);
+            context.getSupportFragmentManager().beginTransaction()
+                    .setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_in_left,
+                            android.R.anim.slide_out_right, android.R.anim.slide_out_right )
+                    .replace(R.id.nav_host_fragment, nextFrag, null)
+                    .addToBackStack(null)
+                    .commit();
         });
     }
 

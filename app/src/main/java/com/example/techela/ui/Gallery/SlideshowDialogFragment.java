@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.DialogFragment;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
@@ -18,38 +19,36 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.example.techela.R;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 
-
-public class SlideshowDialogFragment extends DialogFragment {
-    private String TAG = SlideshowDialogFragment.class.getSimpleName();
+class SlideshowDialogFragment extends DialogFragment {
+    private final String TAG = SlideshowDialogFragment.class.getSimpleName();
     private ArrayList<Image> images;
     private ViewPager viewPager;
-    private MyViewPagerAdapter myViewPagerAdapter;
     private TextView lblCount, lblTitle, lblDate;
     private int selectedPosition = 0;
 
     static SlideshowDialogFragment newInstance() {
-        SlideshowDialogFragment f = new SlideshowDialogFragment();
-        return f;
+        return new SlideshowDialogFragment();
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_image_slider, container, false);
-        viewPager = (ViewPager) v.findViewById(R.id.viewpager);
-        lblCount = (TextView) v.findViewById(R.id.lbl_count);
-        lblTitle = (TextView) v.findViewById(R.id.title);
-        lblDate = (TextView) v.findViewById(R.id.date);
+        viewPager = v.findViewById(R.id.viewpager);
+        lblCount = v.findViewById(R.id.lbl_count);
+        lblTitle = v.findViewById(R.id.title);
+        lblDate = v.findViewById(R.id.date);
 
-        images = (ArrayList<Image>) getArguments().getSerializable("images");
+        images = (ArrayList<Image>) Objects.requireNonNull(getArguments()).getSerializable("images");
         selectedPosition = getArguments().getInt("position");
 
         Log.e(TAG, "position: " + selectedPosition);
         Log.e(TAG, "images size: " + images.size());
 
-        myViewPagerAdapter = new MyViewPagerAdapter();
+        MyViewPagerAdapter myViewPagerAdapter = new MyViewPagerAdapter();
         viewPager.setAdapter(myViewPagerAdapter);
         viewPager.addOnPageChangeListener(viewPagerPageChangeListener);
 
@@ -64,7 +63,7 @@ public class SlideshowDialogFragment extends DialogFragment {
     }
 
     //  page change listener
-    ViewPager.OnPageChangeListener viewPagerPageChangeListener = new ViewPager.OnPageChangeListener() {
+    private final ViewPager.OnPageChangeListener viewPagerPageChangeListener = new ViewPager.OnPageChangeListener() {
 
         @Override
         public void onPageSelected(int position) {
@@ -97,20 +96,19 @@ public class SlideshowDialogFragment extends DialogFragment {
     }
 
     //  adapter
-    public class MyViewPagerAdapter extends PagerAdapter {
+    class MyViewPagerAdapter extends PagerAdapter {
 
-        private LayoutInflater layoutInflater;
-
-        public MyViewPagerAdapter() {
+        MyViewPagerAdapter() {
         }
 
+        @NonNull
         @Override
-        public Object instantiateItem(ViewGroup container, int position) {
+        public Object instantiateItem(@NonNull ViewGroup container, int position) {
 
-            layoutInflater = (LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            View view = layoutInflater.inflate(R.layout.image_fullscreen_preview, container, false);
+            LayoutInflater layoutInflater = (LayoutInflater) Objects.requireNonNull(getActivity()).getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            View view = Objects.requireNonNull(layoutInflater).inflate(R.layout.image_fullscreen_preview, container, false);
 
-            ImageView imageViewPreview = (ImageView) view.findViewById(R.id.image_preview);
+            ImageView imageViewPreview = view.findViewById(R.id.image_preview);
 
             Image image = images.get(position);
 
@@ -131,13 +129,13 @@ public class SlideshowDialogFragment extends DialogFragment {
         }
 
         @Override
-        public boolean isViewFromObject(View view, Object obj) {
-            return view == ((View) obj);
+        public boolean isViewFromObject(@NonNull View view, @NonNull Object obj) {
+            return view == obj;
         }
 
 
         @Override
-        public void destroyItem(ViewGroup container, int position, Object object) {
+        public void destroyItem(ViewGroup container, int position, @NonNull Object object) {
             container.removeView((View) object);
         }
     }

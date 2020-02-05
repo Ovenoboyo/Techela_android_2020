@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -22,15 +23,15 @@ import java.util.List;
 
 public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.MyViewHolder> {
 
-    private List<Image> images;
-    private Context mContext;
+    private final List<Image> images;
+    private final Context mContext;
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        public ImageView thumbnail;
+        final ImageView thumbnail;
 
-        public MyViewHolder(View view) {
+        MyViewHolder(View view) {
             super(view);
-            thumbnail = (ImageView) view.findViewById(R.id.thumbnail);
+            thumbnail = view.findViewById(R.id.thumbnail);
         }
     }
 
@@ -40,6 +41,7 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.MyViewHo
         this.images = images;
     }
 
+    @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext())
@@ -65,15 +67,15 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.MyViewHo
     }
 
     public interface ClickListener {
-        void onClick(View view, int position);
+        void onClick(int position);
 
         void onLongClick(View view, int position);
     }
 
     public static class RecyclerTouchListener implements RecyclerView.OnItemTouchListener {
 
-        private GestureDetector gestureDetector;
-        private GalleryAdapter.ClickListener clickListener;
+        private final GestureDetector gestureDetector;
+        private final GalleryAdapter.ClickListener clickListener;
 
         public RecyclerTouchListener(Context context, final RecyclerView recyclerView, final GalleryAdapter.ClickListener clickListener) {
             this.clickListener = clickListener;
@@ -98,13 +100,13 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.MyViewHo
 
             View child = rv.findChildViewUnder(e.getX(), e.getY());
             if (child != null && clickListener != null && gestureDetector.onTouchEvent(e)) {
-                clickListener.onClick(child, rv.getChildPosition(child));
+                clickListener.onClick(rv.getChildPosition(child));
             }
             return false;
         }
 
         @Override
-        public void onTouchEvent(RecyclerView rv, MotionEvent e) {
+        public void onTouchEvent(@NonNull RecyclerView rv, @NonNull MotionEvent e) {
         }
 
         @Override

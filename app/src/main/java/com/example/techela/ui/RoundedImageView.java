@@ -29,12 +29,10 @@ import android.net.Uri;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 
 import androidx.annotation.ColorInt;
 import androidx.annotation.DimenRes;
 import androidx.annotation.DrawableRes;
-import androidx.appcompat.widget.AppCompatImageView;
 
 import com.example.techela.R;
 
@@ -564,7 +562,7 @@ public class RoundedImageView extends androidx.appcompat.widget.AppCompatImageVi
 
         if (getParent() != null) {
             ViewGroup.MarginLayoutParams params = (ViewGroup.MarginLayoutParams) getLayoutParams();
-            params.topMargin = getMeasuredHeight() / 1;
+            params.topMargin = getMeasuredHeight();
             setLayoutParams(params);
         }
     }

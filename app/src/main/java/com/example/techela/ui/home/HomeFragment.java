@@ -10,7 +10,6 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -18,6 +17,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.techela.MainActivity;
 import com.example.techela.R;
+
+import java.util.Objects;
 
 public class HomeFragment extends Fragment {
 
@@ -29,7 +30,7 @@ public class HomeFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
-        ((MainActivity) getActivity()).setDrawerEnabled(true);
+        ((MainActivity) Objects.requireNonNull(getActivity())).setDrawerEnabled(true);
     }
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -39,47 +40,36 @@ public class HomeFragment extends Fragment {
         com.github.clans.fab.FloatingActionButton fab_website = root.findViewById(R.id.fab_website);
         com.github.clans.fab.FloatingActionButton fab_facebook = root.findViewById(R.id.fab_fb);
 
-        fab_instagram.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Uri uri = Uri.parse("https://www.instagram.com/t_e_c_h_e_l_a/");
-                Intent likeIng = new Intent(Intent.ACTION_VIEW, uri);
+        fab_instagram.setOnClickListener(v -> {
+            Uri uri = Uri.parse("https://www.instagram.com/t_e_c_h_e_l_a/");
+            Intent likeIng = new Intent(Intent.ACTION_VIEW, uri);
 
-                likeIng.setPackage("com.instagram.android");
+            likeIng.setPackage("com.instagram.android");
 
-                try {
-                    startActivity(likeIng);
-                } catch (ActivityNotFoundException e) {
-                    startActivity(new Intent(Intent.ACTION_VIEW,
-                            Uri.parse("https://www.instagram.com/t_e_c_h_e_l_a/")));
-                }
-            }
-        });
-
-        fab_facebook.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Uri uri = Uri.parse("http://www.facebook.com/@techela.csit");
-                Intent likeIng = new Intent(Intent.ACTION_VIEW, uri);
-
-                likeIng.setPackage("com.instagram.android");
-
-                try {
-                    startActivity(likeIng);
-                } catch (ActivityNotFoundException e) {
-                    startActivity(new Intent(Intent.ACTION_VIEW,
-                            Uri.parse("http://www.facebook.com/@techela.csit")));
-                }
-            }
-        });
-
-        fab_website.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+            try {
+                startActivity(likeIng);
+            } catch (ActivityNotFoundException e) {
                 startActivity(new Intent(Intent.ACTION_VIEW,
-                        Uri.parse("https://www.google.com")));
+                        Uri.parse("https://www.instagram.com/t_e_c_h_e_l_a/")));
             }
         });
+
+        fab_facebook.setOnClickListener(v -> {
+            Uri uri = Uri.parse("http://www.facebook.com/@techela.csit");
+            Intent likeIng = new Intent(Intent.ACTION_VIEW, uri);
+
+            likeIng.setPackage("com.instagram.android");
+
+            try {
+                startActivity(likeIng);
+            } catch (ActivityNotFoundException e) {
+                startActivity(new Intent(Intent.ACTION_VIEW,
+                        Uri.parse("http://www.facebook.com/@techela.csit")));
+            }
+        });
+
+        fab_website.setOnClickListener(v -> startActivity(new Intent(Intent.ACTION_VIEW,
+                Uri.parse("https://www.google.com"))));
         RecyclerView recyclerView = root.findViewById(R.id.eventsView);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(mLayoutManager);

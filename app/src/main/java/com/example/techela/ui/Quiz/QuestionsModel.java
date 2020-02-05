@@ -4,10 +4,10 @@ import android.util.Log;
 
 import java.util.ArrayList;
 
-public class QuestionsModel {
-    private String QuestionID;
-    private String QuestionString;
-    private ArrayList<String> options;
+class QuestionsModel {
+    private final String QuestionID;
+    private final String QuestionString;
+    private final ArrayList<String> options;
 
     public String getQuestionID() {
         return QuestionID;

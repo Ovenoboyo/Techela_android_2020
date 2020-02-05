@@ -25,7 +25,7 @@
             android:title="@string/quiz" />
     </group>
 
-    <item android:title="Communicate">
+    <item android:title="@string/communicate">
         <menu>
             <item
                 android:id="@+id/share"

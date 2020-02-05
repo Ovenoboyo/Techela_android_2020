@@ -11,7 +11,6 @@
         android:layout_height="wrap_content">
 
         <androidx.viewpager.widget.PagerTabStrip
-            android:id="@+id/pager_header"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="top"
@@ -27,9 +26,9 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Copyright Symbiosis"
+            android:text="@string/copyright_symbiosis"
             android:textAlignment="center"
-            android:textSize="12dp"
+            android:textSize="12sp"
             android:textColor="@android:color/darker_gray"
             android:layout_gravity="center_vertical"/>
 

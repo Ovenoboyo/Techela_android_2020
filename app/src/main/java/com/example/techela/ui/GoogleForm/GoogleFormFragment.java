@@ -1,37 +1,22 @@
 package com.example.techela.ui.GoogleForm;
 
-import android.Manifest;
-import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
 import android.os.Handler;
-import android.provider.MediaStore;
-import android.util.Log;
-import android.util.SparseArray;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.Toolbar;
-import androidx.core.content.FileProvider;
 import androidx.fragment.app.Fragment;
 
-import com.example.techela.BuildConfig;
 import com.example.techela.MainActivity;
-import com.example.techela.R;
-import com.google.android.gms.vision.Frame;
-import com.google.android.gms.vision.barcode.Barcode;
 import com.google.android.gms.vision.barcode.BarcodeDetector;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -40,8 +25,6 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -52,27 +35,19 @@ import com.google.zxing.Result;
 
 import me.dm7.barcodescanner.zxing.ZXingScannerView;
 
-import static android.app.Activity.RESULT_OK;
-
 public class GoogleFormFragment extends Fragment implements ZXingScannerView.ResultHandler {
 
     private ZXingScannerView mScannerView;
 
-    private Uri imageUri;
-    private BarcodeDetector detector;
-    private static final int PHOTO_REQUEST = 10;
-    private static final int REQUEST_WRITE_PERMISSION = 20;
-    private static final String SAVED_INSTANCE_URI = "uri";
-    private static final String SAVED_INSTANCE_RESULT = "result";
-    private ArrayList<String> barcodesList = new ArrayList<>();
-    private String googleForm = "https://docs.google.com/forms/d/e/1FAIpQLSfCNvyFKYyddYyVPpskXuB93cq-VIdDPVbk0LUr3wIyhZkcWw/viewform?vc=0&c=0&w=1";
+    private final ArrayList<String> barcodesList = new ArrayList<>();
+    private final String googleForm = "https://docs.google.com/forms/d/e/1FAIpQLSfCNvyFKYyddYyVPpskXuB93cq-VIdDPVbk0LUr3wIyhZkcWw/viewform?vc=0&c=0&w=1";
     private FirebaseUser user;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
-        ((MainActivity) getActivity()).setDrawerEnabled(true);
+        ((MainActivity) Objects.requireNonNull(getActivity())).setDrawerEnabled(true);
         user = FirebaseAuth.getInstance().getCurrentUser();
         barcodesList.add("ghhgkgkhgkhgkhgkhg");
     }
@@ -84,7 +59,7 @@ public class GoogleFormFragment extends Fragment implements ZXingScannerView.Res
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         mScannerView = new ZXingScannerView(getActivity());
-        Toolbar toolbar = ((MainActivity)getActivity()).getToolbar();
+        Toolbar toolbar = ((MainActivity) Objects.requireNonNull(getActivity())).getToolbar();
         toolbar.setTitle("Register");
 
         return mScannerView;
@@ -123,7 +98,7 @@ public class GoogleFormFragment extends Fragment implements ZXingScannerView.Res
     }
 
     @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
         menu.clear();
     }
@@ -152,7 +127,7 @@ public class GoogleFormFragment extends Fragment implements ZXingScannerView.Res
     }
 
     @Override
-    public void onPrepareOptionsMenu(Menu menu) {
+    public void onPrepareOptionsMenu(@NonNull Menu menu) {
         super.onPrepareOptionsMenu(menu);
     }
 

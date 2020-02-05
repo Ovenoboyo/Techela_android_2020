@@ -1,21 +1,16 @@
 package com.example.techela.ui.Quiz;
 
 import android.app.ProgressDialog;
-import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.Drawable;
-import android.net.Uri;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.provider.MediaStore;
 import android.util.Log;
+import android.util.SparseArray;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -27,14 +22,10 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.DefaultItemAnimator;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.techela.MainActivity;
 import com.example.techela.R;
 import com.example.techela.ui.home.HomeFragment;
-import com.example.techela.ui.home.RecyclerAdapter;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -51,28 +42,34 @@ import java.util.Random;
 
 public class QuizFragment extends Fragment implements View.OnClickListener {
 
-    Map<Integer, QuestionsModel> QuestionsMap = new HashMap<>();
-    CountDownTimer mCountDownTimer;
-    private int LAST_POSITION = 9; // 10 Questions
-    private int FIRST_POSITION = 0;
-    Map<String, String> AnswersMap = new HashMap<>();
-    Button start, next, prev, submit;
-    LinearLayout options_ll, question_buttons_ll;
-    RadioButton option0, option1, option2, option3;
-    RadioGroup group;
-    TextView quiz_title;
-    RelativeLayout end_quiz;
-    Button end_button;
+    private Map<Integer, QuestionsModel> QuestionsMap = new HashMap<>();
+    private final int LAST_POSITION = 9; // 10 Questions
+    private final int FIRST_POSITION = 0;
+    private final Map<String, String> AnswersMap = new HashMap<>();
+    private Button start;
+    private Button next;
+    private Button prev;
+    private Button submit;
+    private LinearLayout options_ll;
+    private LinearLayout question_buttons_ll;
+    private RadioButton option0;
+    private RadioButton option1;
+    private RadioButton option2;
+    private RadioButton option3;
+    private RadioGroup group;
+    private TextView quiz_title;
+    private RelativeLayout end_quiz;
+    private Button end_button;
     private int position = 0;
-    ArrayList<String> keys = new ArrayList<>();
-    View root;
-    ProgressDialog mProgressDialog;
+    private final ArrayList<String> keys = new ArrayList<>();
+    private View root;
+    private ProgressDialog mProgressDialog;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
-        ((MainActivity) getActivity()).setDrawerEnabled(true);
+        ((MainActivity) Objects.requireNonNull(getActivity())).setDrawerEnabled(true);
         PopulateQuestions();
     }
 
@@ -83,7 +80,7 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         root = inflater.inflate(R.layout.quiz_fragment, container, false);
-        Toolbar toolbar = ((MainActivity)getActivity()).getToolbar();
+        Toolbar toolbar = ((MainActivity) Objects.requireNonNull(getActivity())).getToolbar();
         toolbar.setTitle("Quiz");
 
         if (mProgressDialog == null) {
@@ -124,17 +121,14 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
 
         quiz_title.setText("Start Quiz?");
 
-        end_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                HomeFragment nextFrag = new HomeFragment();
-                QuizFragment.this.getActivity().getSupportFragmentManager().beginTransaction()
-                        .setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_in_left,
-                                android.R.anim.slide_out_right, android.R.anim.slide_out_right )
-                        .replace(R.id.nav_host_fragment, nextFrag, null)
-                        .addToBackStack(null)
-                        .commit();
-            }
+        end_button.setOnClickListener(v -> {
+            HomeFragment nextFrag = new HomeFragment();
+            QuizFragment.this.getActivity().getSupportFragmentManager().beginTransaction()
+                    .setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_in_left,
+                            android.R.anim.slide_out_right, android.R.anim.slide_out_right )
+                    .replace(R.id.nav_host_fragment, nextFrag, null)
+                    .addToBackStack(null)
+                    .commit();
         });
 
         return root;
@@ -145,7 +139,7 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference();
         DatabaseReference statusNode = rootRef.child("QuizAnswers");
-        DatabaseReference userNode = statusNode.child(user.getUid());
+        DatabaseReference userNode = statusNode.child(Objects.requireNonNull(user).getUid());
         userNode.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -173,12 +167,12 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
 
     private void DisplayQuestion (int position) {
         try {
-            quiz_title.setText("Q. " + QuestionsMap.get(position).getQuestionString());
+            quiz_title.setText("Q. " + Objects.requireNonNull(QuestionsMap.get(position)).getQuestionString());
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-        ArrayList<String> options = QuestionsMap.get(position).getOptions();
+        ArrayList<String> options = Objects.requireNonNull(QuestionsMap.get(position)).getOptions();
 
 
 
@@ -191,20 +185,20 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
         option2.setText(options.get(2));
         option3.setText(options.get(3));
 
-        if (option0.getText().equals(AnswersMap.get(QuestionsMap.get(position).getQuestionID()))) {
+        if (option0.getText().equals(AnswersMap.get(Objects.requireNonNull(QuestionsMap.get(position)).getQuestionID()))) {
             option0.setChecked(true);
-        } else if(option1.getText().equals(AnswersMap.get(QuestionsMap.get(position).getQuestionID()))) {
+        } else if(option1.getText().equals(AnswersMap.get(Objects.requireNonNull(QuestionsMap.get(position)).getQuestionID()))) {
             option1.setChecked(true);
-        } else if (option2.getText().equals(AnswersMap.get(QuestionsMap.get(position).getQuestionID()))) {
+        } else if (option2.getText().equals(AnswersMap.get(Objects.requireNonNull(QuestionsMap.get(position)).getQuestionID()))) {
             option2.setChecked(true);
-        } else if (option3.getText().equals(AnswersMap.get(QuestionsMap.get(position).getQuestionID()))) {
+        } else if (option3.getText().equals(AnswersMap.get(Objects.requireNonNull(QuestionsMap.get(position)).getQuestionID()))) {
             option3.setChecked(true);
         }
 
     }
 
     @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
         menu.clear();
     }
@@ -248,7 +242,7 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
     }
 
     @Override
-    public void onPrepareOptionsMenu(Menu menu) {
+    public void onPrepareOptionsMenu(@NonNull Menu menu) {
         super.onPrepareOptionsMenu(menu);
     }
 
@@ -264,11 +258,11 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
                     String question = "";
                     ArrayList<String> options = new ArrayList<>();
                     for (DataSnapshot details : questionNo.getChildren()) {
-                        if (details.getKey().compareTo("question") == 0) {
-                            question = details.getValue().toString();
+                        if (Objects.requireNonNull(details.getKey()).compareTo("question") == 0) {
+                            question = Objects.requireNonNull(details.getValue()).toString();
                         }
                         if (details.getKey().matches(".*option.*")) {
-                            options.add(details.getValue().toString());
+                            options.add(Objects.requireNonNull(details.getValue()).toString());
                         }
                     }
                     if (options.size() == 4) {
@@ -313,7 +307,7 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
 
     private void saveOption(int position) {
         RadioButton button = root.findViewById(group.getCheckedRadioButtonId());
-        AnswersMap.put(QuestionsMap.get(position).getQuestionID(), button.getText().toString());
+        AnswersMap.put(Objects.requireNonNull(QuestionsMap.get(position)).getQuestionID(), button.getText().toString());
         Log.d("test", "saveOption: "+AnswersMap);
     }
 
@@ -321,7 +315,7 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference();
         DatabaseReference statusNode = rootRef.child("QuizAnswers");
-        DatabaseReference userNode = statusNode.child(user.getUid());
+        DatabaseReference userNode = statusNode.child(Objects.requireNonNull(user).getUid());
         userNode.setValue(AnswersMap);
     }
 
