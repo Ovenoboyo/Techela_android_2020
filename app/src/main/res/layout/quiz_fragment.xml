@@ -8,7 +8,8 @@
         android:id="@+id/quiz_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="TextView" />
+        android:text="TextView"
+        android:textColor="#1e90ff"/>
 
     <LinearLayout
         android:id="@+id/options_ll"
@@ -18,33 +19,37 @@
         android:visibility="gone"
         android:orientation="vertical">
 
-        <TextView
+        <RadioButton
             android:id="@+id/option0"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginVertical="8dp"
-            android:text="option0" />
+            android:text="option0"
+            android:buttonTint="@color/your_color"/>
 
-        <TextView
+        <RadioButton
             android:id="@+id/option1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginVertical="8dp"
-            android:text="option1" />
+            android:text="option1"
+            android:buttonTint="@color/your_color"/>
 
-        <TextView
+        <RadioButton
             android:id="@+id/option2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginVertical="8dp"
-            android:text="option2" />
+            android:text="option2"
+            android:buttonTint="@color/your_color"/>
 
-        <TextView
+        <RadioButton
             android:id="@+id/option3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginVertical="8dp"
-            android:text="option3" />
+            android:text="option3"
+            android:buttonTint="@color/your_color"/>
 
     </LinearLayout>
 
@@ -61,31 +66,31 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dip"
-            android:background="@color/colorAccent"
             android:layout_marginHorizontal="5dp"
             android:text="Next"
-            android:textColor="@android:color/black" />
+            android:textColor="@android:color/black"
+            android:background="#1e90ff"/>
 
         <Button
             android:id="@+id/btn_prev"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dip"
-            android:background="@color/colorAccent"
             android:text="Previous"
             android:layout_marginHorizontal="5dp"
-            android:textColor="@android:color/black"/>
+            android:textColor="@android:color/black"
+            android:background="#1e90ff"/>
 
         <Button
             android:id="@+id/submit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dip"
-            android:background="@color/colorAccent"
             android:text="Submit"
             android:visibility="gone"
             android:layout_marginHorizontal="5dp"
-            android:textColor="@android:color/black"/>
+            android:textColor="@android:color/black"
+            android:background="@color/your_color"/>
 
     </LinearLayout>
 
@@ -94,7 +99,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dip"
-        android:background="@color/colorAccent"
+        android:background="@color/your_color"
         android:layout_below="@id/options_ll"
         android:text="Start"
         android:layout_marginHorizontal="5dp"
