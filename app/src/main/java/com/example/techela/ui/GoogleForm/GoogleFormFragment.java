@@ -25,6 +25,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -49,7 +50,17 @@ public class GoogleFormFragment extends Fragment implements ZXingScannerView.Res
         setHasOptionsMenu(true);
         ((MainActivity) Objects.requireNonNull(getActivity())).setDrawerEnabled(true);
         user = FirebaseAuth.getInstance().getCurrentUser();
-        barcodesList.add("ghhgkgkhgkhgkhgkhg");
+        barcodesList.add("aeb47571-6b6b-4b92-ba19-282111c8d669");
+        barcodesList.add("f163ff1f-195d-4935-bf10-e46c4bf90efb");
+        barcodesList.add("bb13359a-9a8d-4502-a650-d9608e748980");
+        barcodesList.add("cf93eb79-8a1d-4511-ba91-2b17a5341de6");
+        barcodesList.add("2e169a33-91c4-4c71-9e6d-ea203e735365");
+        barcodesList.add("c4a1ce8d-7b32-4f17-adbb-527859357446");
+        barcodesList.add("21459418-1db1-4f8d-b001-4faa88bc8a59");
+        barcodesList.add("68acb286-e46a-492f-86bc-4ada96e7ca6b");
+        barcodesList.add("db9d56a6-c55b-4797-b9f2-b4b7d7eb0f09");
+        barcodesList.add("96ad1a17-36ac-4c2b-8cda-a2a20e37cc19");
+
     }
 
     public GoogleFormFragment() {
@@ -121,6 +132,8 @@ public class GoogleFormFragment extends Fragment implements ZXingScannerView.Res
         DatabaseReference userNode = statusNode.child(user.getUid());
         Map<String, String> data = new HashMap<>();
         data.put(uuid, uuid);
+        long time= System.currentTimeMillis();
+        data.put("timestamp", String.valueOf(time));
         userNode.setValue(data);
 
 
