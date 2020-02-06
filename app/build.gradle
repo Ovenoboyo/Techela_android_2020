@@ -1,15 +1,24 @@
 apply plugin: 'com.android.application'
 
 android {
+    signingConfigs {
+        release {
+            storeFile file('C:\\Users\\Oveno\\release-oveno.jks')
+            storePassword 'kekboi69'
+            keyAlias = 'release-oveno'
+            keyPassword 'kekboi69'
+        }
+    }
     compileSdkVersion 29
     buildToolsVersion "29.0.3"
     defaultConfig {
-        applicationId "com.example.techela"
+        applicationId "com.sitfest.techela"
         minSdkVersion 25
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        signingConfig signingConfigs.release
     }
     buildTypes {
         release {
@@ -38,7 +47,7 @@ dependencies {
     implementation 'com.github.clans:fab:1.6.4'
     implementation 'androidx.preference:preference:1.1.0'
     implementation 'com.android.volley:volley:1.1.0'
-    implementation 'com.github.bumptech.glide:glide:3.7.0'
+    implementation 'com.github.bumptech.glide:glide:4.11.0'
     implementation 'com.google.firebase:firebase-analytics:17.2.2'
     implementation 'com.google.firebase:firebase-messaging:20.1.0'
     implementation 'com.google.firebase:firebase-database:19.2.1'
@@ -46,7 +55,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-core:17.2.2'
     implementation 'com.google.android.gms:play-services-vision:19.0.0'
     implementation 'me.dm7.barcodescanner:zxing:1.9.13'
-    testImplementation 'junit:junit:4.12'
+    testImplementation 'junit:junit:4.13'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     implementation project(path: ':lvl_library')

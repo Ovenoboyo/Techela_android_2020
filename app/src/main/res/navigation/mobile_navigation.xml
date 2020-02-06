@@ -6,30 +6,30 @@
 
     <fragment
         android:id="@+id/events"
-        android:name="com.example.techela.ui.home.HomeFragment"
+        android:name="com.sitfest.techela.ui.home.HomeFragment"
         android:label="@string/menu_events"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/qr_code"
-        android:name="com.example.techela.ui.GoogleForm.GoogleFormFragment"
+        android:name="com.sitfest.techela.ui.GoogleForm.GoogleFormFragment"
         android:label="@string/register"
         tools:layout="@layout/google_form" />
 
     <fragment
         android:id="@+id/gallery"
-        android:name="com.example.techela.ui.Gallery.GalleryFragment"
+        android:name="com.sitfest.techela.ui.Gallery.GalleryFragment"
         android:label="@string/gallery"
         tools:layout="@layout/fragment_gallery" />
 
     <fragment
         android:id="@+id/share"
-        android:name="com.example.techela.Share"
+        android:name="com.sitfest.techela.Share"
         android:label="@string/share" />
 
     <fragment
         android:id="@+id/quiz"
-        android:name="com.example.techela.ui.Quiz.QuizFragment"
+        android:name="com.sitfest.techela.ui.Quiz.QuizFragment"
         android:label="@string/quiz" />
 
 </navigation>
