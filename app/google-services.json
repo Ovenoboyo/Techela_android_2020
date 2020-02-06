@@ -34,6 +34,64 @@
           ]
         }
       }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:515842075843:android:98756c54252d0906ed0676",
+        "android_client_info": {
+          "package_name": "com.sitfest.techela"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "515842075843-tejmd85hq95st3arphit1iuhfcoojtcb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCrBmbKleX5G-F7I47WWLgwe5eQysn-MXg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "515842075843-tejmd85hq95st3arphit1iuhfcoojtcb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:515842075843:android:f3179bf81fea02b1ed0676",
+        "android_client_info": {
+          "package_name": "com.symbiosis.techela.admin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "515842075843-tejmd85hq95st3arphit1iuhfcoojtcb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCrBmbKleX5G-F7I47WWLgwe5eQysn-MXg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "515842075843-tejmd85hq95st3arphit1iuhfcoojtcb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
     }
   ],
   "configuration_version": "1"
