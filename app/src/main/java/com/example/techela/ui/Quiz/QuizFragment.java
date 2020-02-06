@@ -35,6 +35,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -313,10 +314,19 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
                 Map<Integer, QuestionsModel> finalMap = new HashMap<>();
                 Log.d("test", "onDataChange: "+QuestionsMap);
                 Random rand = new Random();
+                Object[] keysArray = QuestionsMap.keySet().toArray();
+                ArrayList<Object> keysList = new ArrayList<>(Arrays.asList(keysArray));
                 for (int k =  0; k < 10; k++) {
-                    int randomno = rand.nextInt(QuestionsMap.size() - 1);
-                    Log.d("test", "onDataChange: "+randomno);
-                    finalMap.put(k, QuestionsMap.get(randomno));
+                    int random;
+                    if (keysList.size() > 1) {
+                        random = rand.nextInt(keysList.size() - 1);
+                    } else {
+                        random = 0;
+                    }
+                    Log.d("test", "onDataChange: "+random);
+                    finalMap.put(Integer.valueOf(keysList.get(random).toString()), QuestionsMap.get(Integer.valueOf(keysList.get(random).toString())));
+                    keysList.remove(random);
+
                 }
                 QuestionsMap = finalMap;
                 Log.d("test", "onDataChange: "+QuestionsMap);
