@@ -28,7 +28,6 @@ public class ContributorsPagerFragment extends Fragment{
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
-        FragmentManager fm = getParentFragmentManager();
 
         ((MainActivity) Objects.requireNonNull(getActivity())).setDrawerEnabled(false);
     }

@@ -57,7 +57,7 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
     private RadioButton option2;
     private RadioButton option3;
     private RadioGroup group;
-    private TextView quiz_title;
+    private TextView quiz_title, quiz_holder;
     private RelativeLayout end_quiz;
     private Button end_button;
     private int position = 0;
@@ -70,7 +70,6 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
         ((MainActivity) Objects.requireNonNull(getActivity())).setDrawerEnabled(true);
-        PopulateQuestions();
     }
 
     public QuizFragment() {
@@ -91,46 +90,72 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
 
         mProgressDialog.show();
 
-        quiz_title = root.findViewById(R.id.quiz_title);
-        end_quiz = root.findViewById(R.id.quiz_end);
-        end_button = root.findViewById(R.id.end_button);
-        start = root.findViewById(R.id.btn_start);
-        start.setVisibility(View.GONE);
-        next = root.findViewById(R.id.btn_next);
-        prev = root.findViewById(R.id.btn_prev);
-        submit = root.findViewById(R.id.submit);
+        DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference();
+        DatabaseReference statusNode = rootRef.child("QuizStart");
+        statusNode.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                Log.d("test", "onDataChange: " + Boolean.valueOf(dataSnapshot.getValue().toString()));
+                if (Boolean.valueOf(dataSnapshot.getValue().toString())) {
+                    quiz_title = root.findViewById(R.id.quiz_title);
+                    end_quiz = root.findViewById(R.id.quiz_end);
+                    end_button = root.findViewById(R.id.end_button);
+                    start = root.findViewById(R.id.btn_start);
+                    start.setVisibility(View.GONE);
+                    next = root.findViewById(R.id.btn_next);
+                    prev = root.findViewById(R.id.btn_prev);
+                    submit = root.findViewById(R.id.submit);
 
-        options_ll = root.findViewById(R.id.options_ll);
-        option0 = root.findViewById(R.id.option0);
-        option1 = root.findViewById(R.id.option1);
-        option2 = root.findViewById(R.id.option2);
-        option3 = root.findViewById(R.id.option3);
-        group = root.findViewById(R.id.radiogrp);
+                    options_ll = root.findViewById(R.id.options_ll);
+                    option0 = root.findViewById(R.id.option0);
+                    option1 = root.findViewById(R.id.option1);
+                    option2 = root.findViewById(R.id.option2);
+                    option3 = root.findViewById(R.id.option3);
+                    group = root.findViewById(R.id.radiogrp);
 
-        option0.setOnClickListener(this);
-        option1.setOnClickListener(this);
-        option2.setOnClickListener(this);
-        option3.setOnClickListener(this);
+                    PopulateQuestions();
 
-        question_buttons_ll = root.findViewById(R.id.question_buttons);
+                    option0.setOnClickListener(QuizFragment.this);
+                    option1.setOnClickListener(QuizFragment.this);
+                    option2.setOnClickListener(QuizFragment.this);
+                    option3.setOnClickListener(QuizFragment.this);
 
-        start.setOnClickListener(this);
-        next.setOnClickListener(this);
-        prev.setOnClickListener(this);
-        submit.setOnClickListener(this);
+                    question_buttons_ll = root.findViewById(R.id.question_buttons);
 
-        quiz_title.setText("Start Quiz?");
+                    quiz_holder = root.findViewById(R.id.event_holder);
 
-        end_button.setOnClickListener(v -> {
-            HomeFragment nextFrag = new HomeFragment();
-            QuizFragment.this.getActivity().getSupportFragmentManager().beginTransaction()
-                    .setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_in_left,
-                            android.R.anim.slide_out_right, android.R.anim.slide_out_right )
-                    .replace(R.id.nav_host_fragment, nextFrag, null)
-                    .addToBackStack(null)
-                    .commit();
+                    quiz_holder.setVisibility(View.GONE);
+
+                    start.setOnClickListener(QuizFragment.this);
+                    next.setOnClickListener(QuizFragment.this);
+                    prev.setOnClickListener(QuizFragment.this);
+                    submit.setOnClickListener(QuizFragment.this);
+
+                    quiz_title.setVisibility(View.VISIBLE);
+                    quiz_title.setText("Start Quiz?");
+
+                    end_button.setOnClickListener(v -> {
+                        HomeFragment nextFrag = new HomeFragment();
+                        QuizFragment.this.getActivity().getSupportFragmentManager().beginTransaction()
+                                .setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_in_left,
+                                        android.R.anim.slide_out_right, android.R.anim.slide_out_right )
+                                .replace(R.id.nav_host_fragment, nextFrag, null)
+                                .addToBackStack(null)
+                                .commit();
+                    });
+
+                } else {
+                    if (mProgressDialog != null && mProgressDialog.isShowing()) {
+                        mProgressDialog.dismiss();
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
         });
-
         return root;
     }
 
@@ -140,9 +165,12 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
         DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference();
         DatabaseReference statusNode = rootRef.child("QuizAnswers");
         DatabaseReference userNode = statusNode.child(Objects.requireNonNull(user).getUid());
+
+
         userNode.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
                 if (dataSnapshot.getChildrenCount() < 1) {
                     setupQuestions();
                     DisplayQuestion(position);

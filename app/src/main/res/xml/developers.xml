@@ -4,10 +4,20 @@
 
     <PreferenceCategory android:title="Developers" >
         <Preference
-            android:key="ovenoboyo"
+        android:key="ovenoboyo"
+        android:icon="@drawable/developer"
+        android:summary="App Developer"
+        android:title="Sahil Gupte" >
+    </Preference>
+        <Preference
             android:icon="@drawable/developer"
-            android:summary="App Developer"
-            android:title="Sahil Gupte" >
+            android:summary="App Designer"
+            android:title="Sharad Maurya" >
+        </Preference>
+        <Preference
+            android:icon="@drawable/developer"
+            android:summary="App Designer"
+            android:title="Rohit Kembhavi" >
         </Preference>
         <Preference
             android:icon="@drawable/developer"
