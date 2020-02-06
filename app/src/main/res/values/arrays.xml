@@ -19,13 +19,11 @@
         <item>Clash Royale</item>
         <item>Rainbow six</item>
         <item>Slow Cycle Race</item>
-        <item>No Fire Cooking</item>
         <item>Physiothon</item>
     </string-array>
 
 
     <string-array name="event_time" translatable="false">
-        <item>Event Time</item>
         <item>Event Time</item>
         <item>Event Time</item>
         <item>Event Time</item>
@@ -44,7 +42,6 @@
         <item>Only one can be the true Winner</item>
         <item>Just Stand Still</item>
         <item>Go Slow(in a stop sign)/not fast not furious</item>
-        <item>Turn down the Heat</item>
         <item>Fit and Wit</item>
 
     </string-array>
@@ -58,11 +55,9 @@
         <item>Long desc</item>
         <item>Long desc</item>
         <item>Long desc</item>
-        <item>Long desc</item>
 
     </string-array>
     <string-array name="event_venue" translatable="false">
-        <item>Event Venue</item>
         <item>Event Venue</item>
         <item>Event Venue</item>
         <item>Event Venue</item>

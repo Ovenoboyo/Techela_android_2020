@@ -1,6 +1,8 @@
 package com.example.techela.ui.GoogleForm;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
@@ -14,6 +16,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 import com.example.techela.MainActivity;
@@ -43,6 +47,7 @@ public class GoogleFormFragment extends Fragment implements ZXingScannerView.Res
     private final ArrayList<String> barcodesList = new ArrayList<>();
     private final String googleForm = "https://docs.google.com/forms/d/e/1FAIpQLSfCNvyFKYyddYyVPpskXuB93cq-VIdDPVbk0LUr3wIyhZkcWw/viewform?vc=0&c=0&w=1";
     private FirebaseUser user;
+    private static final int PERMISSION_REQUEST_CAMERA = 69;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -73,6 +78,26 @@ public class GoogleFormFragment extends Fragment implements ZXingScannerView.Res
         Toolbar toolbar = ((MainActivity) Objects.requireNonNull(getActivity())).getToolbar();
         toolbar.setTitle("Register");
 
+        if (ContextCompat.checkSelfPermission(this.getContext(), Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+
+            // Permission is not granted
+            // Should we show an explanation?
+            if (ActivityCompat.shouldShowRequestPermissionRationale(this.getActivity(),
+                    Manifest.permission.CAMERA)) {
+                Toast.makeText(this.getContext(), "Camera Permission is required to run QR Scanner", Toast.LENGTH_LONG).show();
+            } else {
+                // No explanation needed; request the permission
+
+                ActivityCompat.requestPermissions(this.getActivity(),
+                        new String[]{Manifest.permission.CAMERA},
+                        PERMISSION_REQUEST_CAMERA);
+
+                // MY_PERMISSIONS_REQUEST_READ_CONTACTS is an
+                // app-defined int constant. The callback method gets the
+                // result of the request.
+            }
+        }
+
         return mScannerView;
     }
 
@@ -100,6 +125,17 @@ public class GoogleFormFragment extends Fragment implements ZXingScannerView.Res
     private  void openForm() {
         Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(googleForm));
         startActivity(browserIntent);
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode,
+                                           @NonNull String[] permissions, @NonNull int[] grantResults) {
+        if (requestCode == PERMISSION_REQUEST_CAMERA) {
+            if (grantResults.length <= 0
+                    || grantResults[0] != PackageManager.PERMISSION_GRANTED) {
+                Toast.makeText(this.getContext(), "Camera Permission is required to run QR Scanner", Toast.LENGTH_LONG).show();
+            }
+        }
     }
 
     @Override
@@ -151,7 +187,7 @@ public class GoogleFormFragment extends Fragment implements ZXingScannerView.Res
         userNode.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                 Toast.makeText(getContext(), "Remaning QR Codes to find: " + (10 - dataSnapshot.getChildrenCount()), Toast.LENGTH_LONG).show();
+                 Toast.makeText(getContext(), "Remaning QR Codes to find: " + (11 - dataSnapshot.getChildrenCount()), Toast.LENGTH_LONG).show(); // one node is timestamp
             }
 
             @Override

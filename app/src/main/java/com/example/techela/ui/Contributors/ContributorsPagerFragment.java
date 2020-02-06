@@ -55,7 +55,7 @@ public class ContributorsPagerFragment extends Fragment{
         // Returns total number of pages
         @Override
         public int getCount() {
-            int NUM_ITEMS = 2;
+            int NUM_ITEMS = 1;
             return NUM_ITEMS;
         }
 
@@ -64,8 +64,6 @@ public class ContributorsPagerFragment extends Fragment{
         @Override
         public Fragment getItem(int position) {
             switch (position) {
-                case 1: // Fragment # 0 - This will show FirstFragment different title
-                    return new DevelopersFragment();
                 case 0: // Fragment # 0 - This will show FirstFragment
                 default:
                     return new ContributorsFragment();
@@ -79,8 +77,6 @@ public class ContributorsPagerFragment extends Fragment{
                 default:
                 case 0:
                     return "Organising committee";
-                case 1:
-                    return "Developers";
             }
         }
     }

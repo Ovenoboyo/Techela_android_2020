@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -39,6 +40,9 @@ public class HomeFragment extends Fragment {
         com.github.clans.fab.FloatingActionButton fab_instagram = root.findViewById(R.id.fab_insta);
         com.github.clans.fab.FloatingActionButton fab_website = root.findViewById(R.id.fab_website);
         com.github.clans.fab.FloatingActionButton fab_facebook = root.findViewById(R.id.fab_fb);
+
+        Toolbar toolbar = ((MainActivity) Objects.requireNonNull(getActivity())).getToolbar();
+        toolbar.setTitle("Events");
 
         fab_instagram.setOnClickListener(v -> {
             Uri uri = Uri.parse("https://www.instagram.com/t_e_c_h_e_l_a/");
@@ -95,7 +99,6 @@ public class HomeFragment extends Fragment {
                 R.drawable.rainbow_box,
                 R.drawable.placeholder_banner,
                 R.drawable.placeholder_banner,
-                R.drawable.placeholder_banner,
 
         };
 
@@ -106,7 +109,6 @@ public class HomeFragment extends Fragment {
                 R.drawable.mini_militia_icon,
                 R.drawable.clashroyale_icon,
                 R.drawable.rainbow_icon,
-                R.drawable.placeholder,
                 R.drawable.placeholder,
                 R.drawable.placeholder,
         };

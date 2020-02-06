@@ -2,6 +2,42 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:title="Contributors">
 
+    <PreferenceCategory android:title="Overall Techfest" >
+        <Preference
+            android:icon="@drawable/ic_person"
+            android:summary="Head"
+            android:title="Pankhuri Agrawal">
+        </Preference>
+        <Preference
+            android:icon="@drawable/ic_person"
+            android:summary="Co-Head"
+            android:title="Akshit Kansal " >
+        </Preference>
+        <Preference
+            android:icon="@drawable/ic_person"
+            android:summary="Co-Head"
+            android:title="Anchal Thakur" >
+        </Preference>
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="Photography" >
+        <Preference
+            android:icon="@drawable/ic_person"
+            android:summary="Head"
+            android:title="Pranav Nale">
+        </Preference>
+        <Preference
+            android:icon="@drawable/ic_person"
+            android:summary="Co-Head"
+            android:title="Akshit Kansal " >
+        </Preference>
+        <Preference
+            android:icon="@drawable/ic_person"
+            android:summary="Co-Head"
+            android:title="Anchal Thakur" >
+        </Preference>
+    </PreferenceCategory>
+
     <PreferenceCategory android:title="Technical Team" >
         <Preference
             android:icon="@drawable/ic_person"

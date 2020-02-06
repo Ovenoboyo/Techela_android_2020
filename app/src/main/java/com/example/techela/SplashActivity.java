@@ -30,7 +30,7 @@ public class SplashActivity extends Activity {
     private Handler mHandler;
     private LicenseChecker mChecker;
     private LicenseCheckerCallback mLicenseCheckerCallback;
-    private static final String BASE64_PUBLIC_KEY = "YOUR LICENSE KEY FOR THIS APPLICATION";
+    private static final String BASE64_PUBLIC_KEY = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA2vBqexHUH36i2+DZrLtt0Ut1quT6TFKC1qNeTefuTJ9AVRMzf5LbJifpIkr3WviHGnoHJ6uBrFWxrsHeZ+dcE2YSOczRdmsw1zefXgBpGymYPJ/X1BL28ed42NK9lI1qPRVpCTgkRafio2qWV5i+8ydsaruEQ0UwmJ7A0+D1ntw8f1nWz9+9kP1VA1d+24JN9w6qMemIt/ugoRzFTW5HDiYKYCEqe5JkE1o4GCEMu4T/6FzdqeDoUblVM2b5olenoDghAX+kia6elDyM8WBEqzybQSMK6M37AXNVraMVzMiwtyjUPweUfLn5q/QFVYFeyEIVsiP2vX/ZbNj0/AKTGQIDAQAB";
     private static final byte[] SALT = new byte[] {58, 24, 52, 34, 67, 32, 85, 51, 12, 36, 6, 7, 18, 50, 14, 67, 39, 71, 77, 80,};
     private static final int PERMISSION_REQUEST_CAMERA = 69;
     @Override
@@ -40,10 +40,10 @@ public class SplashActivity extends Activity {
 
         String deviceId = Settings.Secure.getString(getContentResolver(), Settings.Secure.ANDROID_ID);
         mHandler = new Handler();
-//        mLicenseCheckerCallback = new mLicenseCheckerCallback();
-//        mChecker = new LicenseChecker(this, new ServerManagedPolicy(this, new AESObfuscator(SALT, getPackageName(), deviceId)), BASE64_PUBLIC_KEY);
-//
-//        doCheck();
+        mLicenseCheckerCallback = new mLicenseCheckerCallback();
+        mChecker = new LicenseChecker(this, new ServerManagedPolicy(this, new AESObfuscator(SALT, getPackageName(), deviceId)), BASE64_PUBLIC_KEY);
+
+        doCheck();
 
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
 
@@ -51,7 +51,7 @@ public class SplashActivity extends Activity {
             // Should we show an explanation?
             if (ActivityCompat.shouldShowRequestPermissionRationale(this,
                     Manifest.permission.CAMERA)) {
-                Toast.makeText(this, "Storage Permission is required to install updates", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "Camera Permission is required to run QR Scanner", Toast.LENGTH_LONG).show();
             } else {
                 // No explanation needed; request the permission
 
