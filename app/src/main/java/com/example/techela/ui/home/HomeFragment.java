@@ -85,26 +85,26 @@ public class HomeFragment extends Fragment {
 
 
         int[] bgimageArray = new int[]{
-                R.drawable.pubg3,
-                R.drawable.csgo3,
-                R.drawable.cod1,
-                R.drawable.mini1,
-                R.drawable.cr1,
-                R.drawable.rainbow1,
-                R.drawable.images1,
+                R.drawable.pubg,
+                R.drawable.csgo,
+                R.drawable.cod_mobile,
+                R.drawable.mini_militia,
+                R.drawable.clash_royale,
+                R.drawable.rainbow_box,
+                R.drawable.placeholder_banner,
                 R.drawable.placeholder_banner,
                 R.drawable.placeholder_banner,
 
         };
 
         int[] imageArray = new int[]{
-                R.drawable.pubglogo2,
-                R.drawable.csgologo2,
-                R.drawable.codlogo1,
-                R.drawable.mnlogo1,
-                R.drawable.crlogo1,
-                R.drawable.rainbowlogo1,
-                R.drawable.slowcyclelogo1,
+                R.drawable.pubg_icon,
+                R.drawable.csgo_icon,
+                R.drawable.cod_mobile,
+                R.drawable.mini_militia_icon,
+                R.drawable.clashroyale_icon,
+                R.drawable.rainbow_icon,
+                R.drawable.placeholder,
                 R.drawable.placeholder,
                 R.drawable.placeholder,
         };
