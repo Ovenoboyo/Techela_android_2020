@@ -20,6 +20,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
 
     private final String[] EventName;
     private final String[] EventDesc;
+    private final String[] EventDescLong;
     private final String[] EventTime;
     private final String[] EventVenue;
     private final int[] EventPic;
@@ -27,9 +28,10 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
     private static LayoutInflater inflater = null;
     private final FragmentActivity context;
 
-    public RecyclerAdapter(FragmentActivity Activity, String[] EventName, String[] EventDesc, int[] EventPic, int[] EventBanner, String[] EventTime, String[] EventVenue) {
+    public RecyclerAdapter(FragmentActivity Activity, String[] EventName, String[] EventDesc, int[] EventPic, int[] EventBanner, String[] EventTime, String[] EventVenue, String[] EventDescLong) {
         this.EventName = EventName;
         this.EventDesc = EventDesc;
+        this.EventDescLong = EventDescLong;
         this.EventPic = EventPic;
         this.EventBanner = EventBanner;
         this.EventTime = EventTime;
@@ -55,7 +57,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
             EventDetailsFragment nextFrag= new EventDetailsFragment();
             Bundle bundle = new Bundle();
             bundle.putString("eventName", EventName[position]);
-            bundle.putString("eventDesc", EventDesc[position]);
+            bundle.putString("eventDesc", EventDescLong[position]);
             bundle.putString("eventTime", EventTime[position]);
             bundle.putString("eventVenue", EventVenue[position]);
             bundle.putInt("eventBanner", EventBanner[position]);

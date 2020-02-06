@@ -79,6 +79,8 @@ public class HomeFragment extends Fragment {
 
         String[] listArray2 = getResources().getStringArray(R.array.event_desc);
 
+        String[] listArray5 = getResources().getStringArray(R.array.event_desc_long);
+
         String[] listArray3 = getResources().getStringArray(R.array.event_time);
 
         String[] listArray4 = getResources().getStringArray(R.array.event_venue);
@@ -109,7 +111,7 @@ public class HomeFragment extends Fragment {
                 R.drawable.placeholder,
         };
 
-        recyclerView.setAdapter(new RecyclerAdapter(getActivity(), listArray1, listArray2, imageArray, bgimageArray, listArray3, listArray4));
+        recyclerView.setAdapter(new RecyclerAdapter(getActivity(), listArray1, listArray2, imageArray, bgimageArray, listArray3, listArray4, listArray5));
         recyclerView.setNestedScrollingEnabled(true);
         return root;
     }

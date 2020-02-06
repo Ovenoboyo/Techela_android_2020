@@ -47,6 +47,18 @@
         <item>Turn down the Heat</item>
         <item>Fit and Wit</item>
 
+    </string-array>
+
+    <string-array name="event_desc_long" translatable="false">
+        <item>Long desc</item>
+        <item>Long desc</item>
+        <item>Long desc</item>
+        <item>Long desc</item>
+        <item>Long desc</item>
+        <item>Long desc</item>
+        <item>Long desc</item>
+        <item>Long desc</item>
+        <item>Long desc</item>
 
     </string-array>
     <string-array name="event_venue" translatable="false">
