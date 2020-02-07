@@ -26,50 +26,186 @@
             android:summary="Head"
             android:title="Pranav Nale">
         </Preference>
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="Publicity" >
         <Preference
             android:icon="@drawable/ic_person"
-            android:summary="Co-Head"
-            android:title="Akshit Kansal " >
+            android:summary="Head"
+            android:title="Harsh Sinha">
         </Preference>
         <Preference
             android:icon="@drawable/ic_person"
             android:summary="Co-Head"
-            android:title="Anchal Thakur" >
+            android:title="Aditya Singh">
+        </Preference>
+        <Preference
+            android:icon="@drawable/ic_person"
+            android:summary="Co-Head"
+            android:title="Ayushi Verma">
         </Preference>
     </PreferenceCategory>
 
-    <PreferenceCategory android:title="Technical Team" >
+    <PreferenceCategory android:title="Finance" >
         <Preference
             android:icon="@drawable/ic_person"
-            android:summary="Hes a good guy"
-            android:title="Some guy" >
-            <intent
-                android:action="android.intent.action.VIEW"
-                android:data="" />
+            android:summary="Head"
+            android:title="Kriti Katayayan">
         </Preference>
         <Preference
             android:icon="@drawable/ic_person"
-            android:summary="good guy"
-            android:title="Some guy" >
-            <intent
-                android:action="android.intent.action.VIEW"
-                android:data="" />
+            android:summary="Co-Head"
+            android:title="Arihant Surana">
         </Preference>
         <Preference
             android:icon="@drawable/ic_person"
-            android:summary="somewhat good guy"
-            android:title="Some guy" >
-            <intent
-                android:action="android.intent.action.VIEW"
-                android:data="" />
+            android:summary="Co-Head"
+            android:title="Krishna Madhuri">
+        </Preference>
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="Design &amp; Anchoring" >
+        <Preference
+            android:icon="@drawable/ic_person"
+            android:summary="Head"
+            android:title="Akash Dholaria">
         </Preference>
         <Preference
             android:icon="@drawable/ic_person"
-            android:summary="meh"
-            android:title="Some guy" >
-            <intent
-                android:action="android.intent.action.VIEW"
-                android:data="" />
-        </Preference>>
+            android:summary="Head"
+            android:title="Gauri Nigam">
+        </Preference>
+        <Preference
+            android:icon="@drawable/ic_person"
+            android:summary="Co-Head"
+            android:title="Saloni Sharma">
+        </Preference>
+        <Preference
+            android:icon="@drawable/ic_person"
+            android:summary="Co-Head"
+            android:title="Yashvi Garg">
+        </Preference>
+        <Preference
+            android:icon="@drawable/ic_person"
+            android:summary="Co-Head"
+            android:title="Pranav Nale">
+        </Preference>
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="Events" >
+        <Preference
+            android:icon="@drawable/ic_person"
+            android:summary="Head"
+            android:title="Manas Ojh">
+        </Preference>
+        <Preference
+            android:icon="@drawable/ic_person"
+            android:summary="Head"
+            android:title="Aditya Naik">
+        </Preference>
+        <Preference
+            android:icon="@drawable/ic_person"
+            android:summary="Co-Head"
+            android:title="Vibhor Bhargava">
+        </Preference>
+        <Preference
+            android:icon="@drawable/ic_person"
+            android:summary="Co-Head"
+            android:title="Yukti Bagrodia">
+        </Preference>
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="Technical" >
+        <Preference
+            android:icon="@drawable/ic_person"
+            android:summary="Head"
+            android:title="Prakarsh Gour">
+        </Preference>
+        <Preference
+            android:key="egg"
+            android:icon="@drawable/ic_person"
+            android:summary="Head"
+            android:title="Srijan Chadha">
+        </Preference>
+        <Preference
+            android:icon="@drawable/ic_person"
+            android:summary="Co-Head"
+            android:title="Riya Gohel">
+        </Preference>
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="Logistics &amp; Hospitality" >
+        <Preference
+            android:icon="@drawable/ic_person"
+            android:summary="Head"
+            android:title="Ambika Sharma">
+        </Preference>
+        <Preference
+            android:icon="@drawable/ic_person"
+            android:summary="Co-Head"
+            android:title="Harsh Saple">
+        </Preference>
+        <Preference
+            android:icon="@drawable/ic_person"
+            android:summary="Co-Head"
+            android:title="Rohit Aggarwal">
+        </Preference>
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="Accolades" >
+        <Preference
+            android:icon="@drawable/ic_person"
+            android:summary="Head"
+            android:title="Hridyesh Singh Bisht">
+        </Preference>
+        <Preference
+            android:icon="@drawable/ic_person"
+            android:summary="Co-Head"
+            android:title="Akshat Singhal">
+        </Preference>
+        <Preference
+            android:icon="@drawable/ic_person"
+            android:summary="Co-Head"
+            android:title="Himank Jain">
+        </Preference>
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="Techfest T-Shirts" >
+        <Preference
+            android:icon="@drawable/ic_person"
+            android:summary="Head"
+            android:title="Manas Ojha">
+        </Preference>
+        <Preference
+            android:icon="@drawable/ic_person"
+            android:summary="Co-Head"
+            android:title="Namya Kumar">
+        </Preference>
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="Sponsorship" >
+        <Preference
+            android:icon="@drawable/ic_person"
+            android:summary="Head"
+            android:title="Hardik Shah">
+        </Preference>
+        <Preference
+            android:icon="@drawable/ic_person"
+            android:summary="Head"
+            android:title="Tapan Bolia">
+        </Preference>
+        <Preference
+            android:icon="@drawable/ic_person"
+            android:summary="Co-Head"
+            android:title="Atharva Rajbansi">
+        </Preference>
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="Documentation" >
+        <Preference
+            android:icon="@drawable/ic_person"
+            android:summary="Head"
+            android:title="Riya Obheroi">
+        </Preference>
     </PreferenceCategory>
 </PreferenceScreen>

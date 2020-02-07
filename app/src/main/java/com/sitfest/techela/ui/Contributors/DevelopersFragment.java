@@ -30,7 +30,6 @@ public class DevelopersFragment extends PreferenceFragmentCompat {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = super.onCreateView(inflater, container, savedInstanceState);
-
         Objects.requireNonNull(view).setBackgroundColor(Color.WHITE);
 
         return view;

@@ -17,6 +17,8 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
+import com.google.android.vending.licensing.AESObfuscator;
+import com.google.android.vending.licensing.ServerManagedPolicy;
 import com.sitfest.techela.Auth.LoginActivity;
 import com.google.android.vending.licensing.LicenseChecker;
 import com.google.android.vending.licensing.LicenseCheckerCallback;
@@ -26,6 +28,9 @@ public class SplashActivity extends Activity {
     private Handler mHandler;
     private LicenseChecker mChecker;
     private LicenseCheckerCallback mLicenseCheckerCallback;
+    boolean licensed;
+    boolean checkingLicense;
+    boolean didCheck;
     private static final String BASE64_PUBLIC_KEY = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA2vBqexHUH36i2+DZrLtt0Ut1quT6TFKC1qNeTefuTJ9AVRMzf5LbJifpIkr3WviHGnoHJ6uBrFWxrsHeZ+dcE2YSOczRdmsw1zefXgBpGymYPJ/X1BL28ed42NK9lI1qPRVpCTgkRafio2qWV5i+8ydsaruEQ0UwmJ7A0+D1ntw8f1nWz9+9kP1VA1d+24JN9w6qMemIt/ugoRzFTW5HDiYKYCEqe5JkE1o4GCEMu4T/6FzdqeDoUblVM2b5olenoDghAX+kia6elDyM8WBEqzybQSMK6M37AXNVraMVzMiwtyjUPweUfLn5q/QFVYFeyEIVsiP2vX/ZbNj0/AKTGQIDAQAB";
     private static final byte[] SALT = new byte[] {58, 24, 52, 34, 67, 32, 85, 51, 12, 36, 6, 7, 18, 50, 14, 67, 39, 71, 77, 80,};
     private static final int PERMISSION_REQUEST_CAMERA = 69;
@@ -40,34 +45,35 @@ public class SplashActivity extends Activity {
         mChecker = new LicenseChecker(this, new ServerManagedPolicy(this, new AESObfuscator(SALT, getPackageName(), deviceId)), BASE64_PUBLIC_KEY);
 
         doCheck();
+        if (!licensed) {
+            if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
 
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+                // Permission is not granted
+                // Should we show an explanation?
+                if (ActivityCompat.shouldShowRequestPermissionRationale(this,
+                        Manifest.permission.CAMERA)) {
+                    Toast.makeText(this, "Camera Permission is required to run QR Scanner", Toast.LENGTH_LONG).show();
+                } else {
+                    // No explanation needed; request the permission
 
-            // Permission is not granted
-            // Should we show an explanation?
-            if (ActivityCompat.shouldShowRequestPermissionRationale(this,
-                    Manifest.permission.CAMERA)) {
-                Toast.makeText(this, "Camera Permission is required to run QR Scanner", Toast.LENGTH_LONG).show();
-            } else {
-                // No explanation needed; request the permission
+                    ActivityCompat.requestPermissions(this,
+                            new String[]{Manifest.permission.CAMERA},
+                            PERMISSION_REQUEST_CAMERA);
 
-                ActivityCompat.requestPermissions(this,
-                        new String[]{Manifest.permission.CAMERA},
-                        PERMISSION_REQUEST_CAMERA);
-
-                // MY_PERMISSIONS_REQUEST_READ_CONTACTS is an
-                // app-defined int constant. The callback method gets the
-                // result of the request.
+                    // MY_PERMISSIONS_REQUEST_READ_CONTACTS is an
+                    // app-defined int constant. The callback method gets the
+                    // result of the request.
+                }
             }
+
+            mHandler =new Handler();
+            mHandler.postDelayed(() -> {
+                Intent intent=new Intent(SplashActivity.this, LoginActivity.class);
+                startActivity(intent);
+                finish();
+            },2500);
+
         }
-
-        mHandler =new Handler();
-        mHandler.postDelayed(() -> {
-            Intent intent=new Intent(SplashActivity.this, LoginActivity.class);
-            startActivity(intent);
-            finish();
-        },2500);
-
     }
 
     @Override
@@ -83,6 +89,8 @@ public class SplashActivity extends Activity {
 
     private void doCheck() {
 
+        didCheck = false;
+        checkingLicense = true;
         setProgressBarIndeterminateVisibility(true);
 
         mChecker.checkAccess(mLicenseCheckerCallback);
@@ -100,8 +108,10 @@ public class SplashActivity extends Activity {
             }
             Log.i("License","Accepted!");
 
-            //You can do other things here, like saving the licensed status to a
-            //SharedPreference so the app only has to check the license once.
+
+            licensed = true;
+            checkingLicense = false;
+            didCheck = true;
 
         }
 
@@ -116,8 +126,10 @@ public class SplashActivity extends Activity {
             Log.i("License","Denied!");
             Log.i("License","Reason for denial: "+reason);
 
-            //You can do other things here, like saving the licensed status to a
-            //SharedPreference so the app only has to check the license once.
+
+            licensed = false;
+            checkingLicense = false;
+            didCheck = true;
 
             showDialog(0);
 
@@ -132,6 +144,10 @@ public class SplashActivity extends Activity {
                 // Don't update UI if Activity is finishing.
                 return;
             }
+
+            licensed = true;
+            checkingLicense = false;
+            didCheck = false;
 
             showDialog(0);
         }
