@@ -94,7 +94,6 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
         statusNode.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                Log.d("test", "onDataChange: " + Boolean.valueOf(dataSnapshot.getValue().toString()));
                 if (Boolean.valueOf(dataSnapshot.getValue().toString())) {
                     quiz_title = root.findViewById(R.id.quiz_title);
                     end_quiz = root.findViewById(R.id.quiz_end);
@@ -201,11 +200,7 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
 
         ArrayList<String> options = Objects.requireNonNull(QuestionsMap.get(position)).getOptions();
 
-
-
         group.clearCheck();
-
-        Log.d("test", "DisplayQuestion: "+option0.getText());
 
         option0.setText(options.get(0));
         option1.setText(options.get(1));
@@ -294,14 +289,12 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
                     }
                     if (options.size() == 4) {
                         QuestionsModel model = new QuestionsModel(questionNo.getKey(), question, options);
-                        Log.d("test", "onDataChange: "+model);
                         QuestionsMap.put(i, model);
                     } else if (options.size() < 4){
                         for (int j = options.size() - 1; j < 4; j++) {
                             options.add(j, " ");
                         }
                         QuestionsModel model = new QuestionsModel(questionNo.getKey(), question, options);
-                        Log.d("test", "onDataChange: "+model);
                         QuestionsMap.put(i, model);
                     }
 
@@ -310,7 +303,6 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
                     i++;
                 }
                 Map<Integer, QuestionsModel> finalMap = new HashMap<>();
-                Log.d("test", "onDataChange: "+QuestionsMap);
                 Random rand = new Random();
                 Object[] keysArray = QuestionsMap.keySet().toArray();
                 ArrayList<Object> keysList = new ArrayList<>(Arrays.asList(keysArray));
@@ -321,13 +313,11 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
                     } else {
                         random = 0;
                     }
-                    Log.d("test", "onDataChange: "+random);
-                    finalMap.put(Integer.valueOf(keysList.get(random).toString()), QuestionsMap.get(Integer.valueOf(keysList.get(random).toString())));
+                    finalMap.put(k, QuestionsMap.get(Integer.valueOf(keysList.get(random).toString())));
                     keysList.remove(random);
 
                 }
                 QuestionsMap = finalMap;
-                Log.d("test", "onDataChange: "+QuestionsMap);
                 start.setVisibility(View.VISIBLE);
                 if (mProgressDialog != null && mProgressDialog.isShowing()) {
                     mProgressDialog.dismiss();
@@ -344,7 +334,6 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
     private void saveOption(int position) {
         RadioButton button = root.findViewById(group.getCheckedRadioButtonId());
         AnswersMap.put(Objects.requireNonNull(QuestionsMap.get(position)).getQuestionID(), button.getText().toString());
-        Log.d("test", "saveOption: "+AnswersMap);
     }
 
     private void submit() {
