@@ -47,14 +47,14 @@
     </string-array>
 
     <string-array name="event_desc_long" translatable="false">
-        <item>Long desc</item>
-        <item>Long desc</item>
-        <item>Long desc</item>
-        <item>Long desc</item>
-        <item>Long desc</item>
-        <item>Long desc</item>
-        <item>Long desc</item>
-        <item>Long desc</item>
+        <item>PUBG (mobile) tournament . \n\nBring your squad and join the group. \n\nTeam TPS Game (Mobile)</item>
+        <item>The most awaited gaming event is here. \n\nGet your squad together for the ultimate battle of *CS GO*  \n\nAMAZING *CASH PRIZES* FOR *1ST* AND *2ND* WINNERS UPTO *₹ 2500*. \n\nTeam FPS Game.</item>
+        <item>Team FPS Game (Mobile)</item>
+        <item>*Mini Militia* has already made a name for itself. \n\nBe a part of this Gaming Event and *Exciting Rewards* awaits you. \n\nSolo Game (Mobile).</item>
+        <item>It will have CashPrizes worth *Rupee 1500* and some Exciting *Vouchers*. \n\nJoin and be a part of our *Clan*. \n\n Solo Game (Mobile).</item>
+        <item>It will have CashPrizes worth Rupees 2500 and some Exiting Vouchers. \n\nJoin and be a part of our SQUAD. \n\n Team FPS Game.</item>
+        <item>Cycling Race with a twist</item>
+        <item>Consist of technical(will do certain activity and simultaneously tell the code) and non technical person (will performcoding).(30 minutes approx.)</item>
 
     </string-array>
     <string-array name="event_venue" translatable="false">

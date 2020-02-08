@@ -12,6 +12,7 @@
         android:handleProfiling="false"
         android:label="Tests for com.google.android.vending.licensing.test"
         android:targetPackage="com.google.android.vending.licensing.test" />
+    <!-- Devices >= 3 have version of Android Market that supports licensing. -->
     <!-- Required permission to check licensing. -->
     <uses-permission android:name="com.android.vending.CHECK_LICENSE" />
 
