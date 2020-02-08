@@ -19,6 +19,11 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.sitfest.techela.ui.Contributors.ContributorsPagerFragment;
+import com.sitfest.techela.ui.Contributors.DevelopersFragment;
+import com.sitfest.techela.ui.EventDetails.EventDetailsFragment;
+import com.sitfest.techela.ui.Gallery.GalleryFragment;
+import com.sitfest.techela.ui.GoogleForm.GoogleFormFragment;
+import com.sitfest.techela.ui.Quiz.QuizFragment;
 import com.sitfest.techela.ui.home.HomeFragment;
 import com.google.android.material.navigation.NavigationView;
 
@@ -86,26 +91,29 @@ public class MainActivity extends AppCompatActivity {
 
         int count = getSupportFragmentManager().getBackStackEntryCount();
 
-        if (count == 0) {
-            new AlertDialog.Builder(Objects.requireNonNull(this))
-                    .setTitle("Exit?")
-                    .setMessage("Are you sure you want to exit?")
-                    .setNegativeButton(android.R.string.no, null)
-                    .setPositiveButton(android.R.string.yes, (arg0, arg1) -> Objects.requireNonNull(this).finish()).create().show();
-        } else {
             FragmentManager fm = getSupportFragmentManager();
-            Fragment HomeFragment = new HomeFragment();
-            FragmentTransaction transaction = fm.beginTransaction();
-            transaction.replace(R.id.nav_host_fragment, HomeFragment);
-            transaction.commit();
-
-            for (Object f: fm.getFragments()) {
-                Log.d("test", "onBackPressed: "+f);
-                if (f instanceof ContributorsPagerFragment)
+            for (Fragment fragment : fm.getFragments()) {
+                Log.d("test", "onBackPressed: "+fragment);
+                if (fragment instanceof EventDetailsFragment) {
+                    fm.popBackStack();
                     toolbar.setTitle("Events");
+                    return;
+                } else if (fragment instanceof ContributorsPagerFragment) {
+                    fm.popBackStack();
+                    setDrawerEnabled(true);
+                    toolbar.setTitle("Events");
+                    return;
+                } else if (fragment instanceof DevelopersFragment) {
+                    fm.popBackStack();
+                    toolbar.setTitle("Contributors");
+                } else if(fragment instanceof HomeFragment || fragment instanceof GalleryFragment || fragment instanceof GoogleFormFragment || fragment instanceof QuizFragment){
+                    new AlertDialog.Builder(Objects.requireNonNull(this))
+                            .setTitle("Exit?")
+                            .setMessage("Are you sure you want to exit?")
+                            .setNegativeButton(android.R.string.no, null)
+                            .setPositiveButton(android.R.string.yes, (arg0, arg1) -> Objects.requireNonNull(this).finish()).create().show();
+                }
             }
-        }
-
     }
 
     public Toolbar getToolbar(){

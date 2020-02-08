@@ -7,33 +7,32 @@
         android:key="ovenoboyo"
         android:icon="@drawable/developer"
         android:summary="App Developer"
-        android:title="Sahil Gupte" >
+        android:title="Sahil Gupte">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:data="https://www.instagram.com/ovenoboyo/" />
+
     </Preference>
         <Preference
             android:icon="@drawable/developer"
             android:summary="App Designer"
             android:title="Sharad Maurya" >
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://www.instagram.com/god_spe3d/" />
         </Preference>
         <Preference
             android:icon="@drawable/developer"
             android:summary="App Designer"
             android:title="Rohit Kembhavi" >
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://www.instagram.com/rohitkembhavi/" />
         </Preference>
         <Preference
             android:icon="@drawable/developer"
             android:summary="App Developer"
             android:title="Ayush" >
-            <intent
-                android:action="android.intent.action.VIEW"
-                android:data="" />
-        </Preference>
-        <Preference
-            android:icon="@drawable/developer"
-            android:summary="App Developer"
-            android:title="Srijan Chadha" >
-            <intent
-                android:action="android.intent.action.VIEW"
-                android:data="" />
         </Preference>
     </PreferenceCategory>
 </PreferenceScreen>

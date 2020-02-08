@@ -73,7 +73,7 @@ public class HomeFragment extends Fragment {
         });
 
         fab_website.setOnClickListener(v -> startActivity(new Intent(Intent.ACTION_VIEW,
-                Uri.parse("https://www.google.com"))));
+                Uri.parse("https://www.sitfest.info/"))));
         RecyclerView recyclerView = root.findViewById(R.id.eventsView);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(mLayoutManager);
@@ -97,8 +97,16 @@ public class HomeFragment extends Fragment {
                 R.drawable.mini_militia,
                 R.drawable.clash_royale,
                 R.drawable.rainbow_box,
+                R.drawable.fifa_banner,
+                R.drawable.escape_banner,
+                R.drawable.tech_banner,
+                R.drawable.graphic_banner,
+                R.drawable.blind_banner,
+                R.drawable.quiz_banner,
                 R.drawable.placeholder_banner,
-                R.drawable.placeholder_banner,
+                R.drawable.treasure_banner,
+                R.drawable.game_banner,
+
 
         };
 
@@ -109,8 +117,16 @@ public class HomeFragment extends Fragment {
                 R.drawable.mini_militia_icon,
                 R.drawable.clashroyale_icon,
                 R.drawable.rainbow_icon,
+                R.drawable.fifa_logo,
+                R.drawable.escape_logo,
+                R.drawable.tech_logo,
+                R.drawable.graphic_logo,
+                R.drawable.blind_logo,
+                R.drawable.quiz_logo,
                 R.drawable.placeholder,
-                R.drawable.placeholder,
+                R.drawable.treasure_logo,
+                R.drawable.game__loho,
+
         };
 
         recyclerView.setAdapter(new RecyclerAdapter(getActivity(), listArray1, listArray2, imageArray, bgimageArray, listArray3, listArray4, listArray5));
@@ -118,3 +134,4 @@ public class HomeFragment extends Fragment {
         return root;
     }
 }
+

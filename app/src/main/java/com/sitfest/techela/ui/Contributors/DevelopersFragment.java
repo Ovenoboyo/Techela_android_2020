@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.preference.PreferenceFragmentCompat;
 
+import com.sitfest.techela.MainActivity;
 import com.sitfest.techela.R;
 
 import java.util.Objects;
@@ -20,6 +21,7 @@ public class DevelopersFragment extends PreferenceFragmentCompat {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        ((MainActivity)getActivity()).getToolbar().setTitle("Developers");
     }
 
     @Override

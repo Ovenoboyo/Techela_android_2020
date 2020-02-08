@@ -18,12 +18,26 @@
         <item>Mini Militia</item>
         <item>Clash Royale</item>
         <item>Rainbow six</item>
-        <item>Slow Cycle Race</item>
+        <item>Fifa</item>
+        <item>Sherlock Escape </item>
+        <item>TechProject</item>
+        <item>Graphic Designing</item>
+        <item>Blind Formating </item>
+        <item>Quizz</item>
         <item>Physiothon</item>
+        <item>Treasure Hunt</item>
+        <item>Game Jam</item>
     </string-array>
 
 
     <string-array name="event_time" translatable="false">
+        <item>Event Time</item>
+        <item>Event Time</item>
+        <item>Event Time</item>
+        <item>Event Time</item>
+        <item>Event Time</item>
+        <item>Event Time</item>
+        <item>Event Time</item>
         <item>Event Time</item>
         <item>Event Time</item>
         <item>Event Time</item>
@@ -41,23 +55,75 @@
         <item>Team up for the most classic game</item>
         <item>Only one can be the true Winner</item>
         <item>Just Stand Still</item>
-        <item>Go Slow(in a stop sign)/not fast not furious</item>
+        <item>Fifa</item>
+        <item>Escape room</item>
+        <item>Projects showcase by college students</item>
+        <item>On spot designing in Photoshop</item>
+        <item>Type a given text with monitor turned off</item>
+        <item>Type without looking</item>
+        <item>Quizes for faculty and students</item>
         <item>Fit and Wit</item>
+        <item>Find the treasure with clues</item>
+        <item>Make a game from scratch</item>
 
     </string-array>
 
     <string-array name="event_desc_long" translatable="false">
+        <item>Exited for the most famous mobile game competition ??Techela 2020 presents you PUBG (mobile) tournament . Bring your squad and join the group . Become the
+part of most exited gaming event </item>
+        <item>
+The most awaited gaming event is here.
+Get your squad together for the ultimate battle of CS GO
+Join us this TECHELA on 12th and 13th
+AMAZING CASH PRIZES FOR 1ST AND 2ND WINNERS UPTO ₹ 2500</item>
+        <item>Long desc</item>
+        <item>Hello Guys!!
+Techela is hosting an interesting Gaming event  Mini Militia.
+Mini Militia has already made a name for itself.
+Be a part of this Gaming Event and Exciting Rewards awaits you. </item>
+        <item>Techela is coming up with more Gaming Events. This time it is Clash Royale.
+It will have CashPrizes worth Rupees 1500 and some Exciting Vouchers.
+Join and be a part of our Clan.
+Clash On
+        </item>
+        <item>Techela is coming up with more Gaming Events. This time it is RAINBOW SIX SIEGE.
+It will have CashPrizes worth Rupees 2500 and some Exciting Vouchers.
+Join and be a part of our SQUAD.
+For further details Join the group via link provided below.
+*LET THE BATTLE BEGIN *</item>
+        <item>It\'s that time of the year again. So put on your virtual kits, plug in your gaming gear and Let\'s football! Techela\'20 brings to you FIFA. Can you give Liverpool their first defeat of the season? Can you stop Haaland and Sancho?
+Beat your way to the top to win amazing cash prizes of ₹1000 and ₹500 for champion and runner-up. Don\'t miss out!</item>
+        <item>Where there is no imagination, there\'s no horror
+Sherlock Holmes said this after solving a case.
+Want to be Sherlock and solve a case?
+Here\'s your chance!
+Techela brings to you Sherlock escape</item>
         <item>Long desc</item>
         <item>Long desc</item>
-        <item>Long desc</item>
-        <item>Long desc</item>
-        <item>Long desc</item>
-        <item>Long desc</item>
-        <item>Long desc</item>
-        <item>Long desc</item>
+        <item>Editing with a twist.
+Blind formatting!
+Yes, experience Helen Keller to an extent at this event at techela!
+We engineers never take the easy way do we?</item>
+        <item>Did you ever wonder whether our professors were toppers?
+Here\'s a chance for you to find out the toppers in teachers
+Join us at the faculty quiz during the much awaited techela</item>
+        <item>Who said non technical people can\'t code? Get together with your technical friend and get coding as your friend dictates it to you while doing some physical activity.</item>
+        <item>Some great man said \' Life is a treasure \'
+But where\'s the fun?
+Find fun in your life at the treasure hunt!
+Don\'t miss
+Catch us at techela</item>
+        <item>Hey Game developers get ready to display your talent to make the best game in the given time</item>
 
     </string-array>
     <string-array name="event_venue" translatable="false">
+        <item>Event Venue</item>
+        <item>Event Venue</item>
+        <item>Event Venue</item>
+        <item>Event Venue</item>
+        <item>Event Venue</item>
+        <item>Event Venue</item>
+        <item>Event Venue</item>
         <item>Event Venue</item>
         <item>Event Venue</item>
         <item>Event Venue</item>
@@ -70,3 +136,4 @@
 
 
 </resources>
+

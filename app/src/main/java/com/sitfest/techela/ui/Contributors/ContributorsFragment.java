@@ -27,16 +27,20 @@ public class ContributorsFragment extends PreferenceFragmentCompat {
         setPreferencesFromResource(R.xml.contributors, rootKey);
 
         Preference egg = findPreference("egg");
+        final Toast[] toast = {new Toast(ContributorsFragment.this.getContext())};
         egg.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
             @Override
             public boolean onPreferenceClick(Preference preference) {
                 clicks++;
+                if (toast[0] != null) {
+                    toast[0].cancel();
+                }
                 if (clicks == 1) {
-                    Toast.makeText(ContributorsFragment.this.getContext(), "Shhh...", Toast.LENGTH_SHORT).show();
+                    toast[0] = Toast.makeText(ContributorsFragment.this.getContext(), "Shhh...", Toast.LENGTH_SHORT);
                 } else if (clicks == 2) {
-                    Toast.makeText(ContributorsFragment.this.getContext(), "Don't click....", Toast.LENGTH_SHORT).show();
+                    toast[0] = Toast.makeText(ContributorsFragment.this.getContext(), "Don't click....", Toast.LENGTH_SHORT);
                 } else if (clicks == 3) {
-                    Toast.makeText(ContributorsFragment.this.getContext(), "I said don't click!!", Toast.LENGTH_SHORT).show();
+                    toast[0] = Toast.makeText(ContributorsFragment.this.getContext(), "I said don't click!!", Toast.LENGTH_SHORT);
                 } else if (clicks > 3) {
                     DevelopersFragment nextFrag = new DevelopersFragment();
                     getActivity().getSupportFragmentManager().beginTransaction()
@@ -47,6 +51,7 @@ public class ContributorsFragment extends PreferenceFragmentCompat {
                             .commit();
                     clicks--;
                 }
+                toast[0].show();
                 return false;
             }
         });
