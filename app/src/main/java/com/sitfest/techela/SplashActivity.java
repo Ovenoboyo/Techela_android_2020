@@ -39,13 +39,13 @@ public class SplashActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.splash_screen);
 
-//        String deviceId = Settings.Secure.getString(getContentResolver(), Settings.Secure.ANDROID_ID);
-//        mHandler = new Handler();
-//        mLicenseCheckerCallback = new mLicenseCheckerCallback();
-//        mChecker = new LicenseChecker(this, new ServerManagedPolicy(this, new AESObfuscator(SALT, getPackageName(), deviceId)), BASE64_PUBLIC_KEY);
-//
-//        doCheck();
-//        if (!licensed) {
+        String deviceId = Settings.Secure.getString(getContentResolver(), Settings.Secure.ANDROID_ID);
+        mHandler = new Handler();
+        mLicenseCheckerCallback = new mLicenseCheckerCallback();
+        mChecker = new LicenseChecker(this, new ServerManagedPolicy(this, new AESObfuscator(SALT, getPackageName(), deviceId)), BASE64_PUBLIC_KEY);
+
+        doCheck();
+        if (licensed) {
             if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
 
                 // Permission is not granted
@@ -65,16 +65,17 @@ public class SplashActivity extends Activity {
                     // result of the request.
                 }
             }
-
-            mHandler =new Handler();
-            mHandler.postDelayed(() -> {
-                Intent intent=new Intent(SplashActivity.this, LoginActivity.class);
-                startActivity(intent);
-                finish();
-            },2500);
-
+        } else {
+            finishAndRemoveTask();
         }
-//    }
+
+        mHandler =new Handler();
+        mHandler.postDelayed(() -> {
+            Intent intent=new Intent(SplashActivity.this, LoginActivity.class);
+            startActivity(intent);
+            finish();
+        },2500);
+    }
 
     @Override
     public void onRequestPermissionsResult(int requestCode,
@@ -92,7 +93,6 @@ public class SplashActivity extends Activity {
         didCheck = false;
         checkingLicense = true;
         setProgressBarIndeterminateVisibility(true);
-
         mChecker.checkAccess(mLicenseCheckerCallback);
     }
 
