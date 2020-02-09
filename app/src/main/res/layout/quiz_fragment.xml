@@ -14,12 +14,21 @@
         android:textSize="30sp"
         android:text="The quiz hasn't started yet..."/>
 
+    <TextView
+        android:id="@+id/quiz_timer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:textSize="18sp"
+        android:textAlignment="center" />
+
 
     <TextView
         android:visibility="gone"
         android:id="@+id/quiz_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/quiz_timer"
         android:textSize="24sp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="15dp"

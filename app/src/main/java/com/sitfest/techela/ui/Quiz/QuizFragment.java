@@ -2,6 +2,7 @@ package com.sitfest.techela.ui.Quiz;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -56,7 +57,7 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
     private RadioButton option2;
     private RadioButton option3;
     private RadioGroup group;
-    private TextView quiz_title, quiz_holder;
+    private TextView quiz_title, quiz_holder, quiz_timer;
     private RelativeLayout end_quiz;
     private Button end_button;
     private int position = 0;
@@ -125,6 +126,10 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
 
                     quiz_holder.setVisibility(View.GONE);
 
+                    quiz_timer = root.findViewById(R.id.quiz_timer);
+
+                    quiz_timer.setVisibility(View.GONE);
+
                     start.setOnClickListener(QuizFragment.this);
                     next.setOnClickListener(QuizFragment.this);
                     prev.setOnClickListener(QuizFragment.this);
@@ -190,6 +195,17 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
         start.setVisibility(View.GONE);
         options_ll.setVisibility(View.VISIBLE);
         question_buttons_ll.setVisibility(View.VISIBLE);
+        quiz_timer.setVisibility(View.VISIBLE);
+        new CountDownTimer(300000, 1000) {
+
+            public void onTick(long millisUntilFinished) {
+                quiz_timer.setText(String.valueOf(millisUntilFinished / 1000));
+            }
+
+            public void onFinish() {
+                submit.callOnClick();
+            }
+        }.start();
     }
 
     private void DisplayQuestion (int position) {
