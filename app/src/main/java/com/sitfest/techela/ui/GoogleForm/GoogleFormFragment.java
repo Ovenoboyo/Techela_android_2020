@@ -163,12 +163,11 @@ public class GoogleFormFragment extends Fragment implements ZXingScannerView.Res
     private void push_status(String uuid) {
         DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference();
         DatabaseReference statusNode = rootRef.child("LuckyStatus");
-        DatabaseReference userNode = statusNode.child(user.getUid());
-        Map<String, String> data = new HashMap<>();
-        data.put(uuid, uuid);
+        DatabaseReference userNode = statusNode.child(user.getUid()).child(uuid);
+        DatabaseReference timestamp = statusNode.child(user.getUid()).child("timestamp");
+        userNode.setValue(uuid);
         long time= System.currentTimeMillis();
-        data.put("timestamp", String.valueOf(time));
-        userNode.setValue(data);
+        timestamp.setValue(String.valueOf(time));
 
 
     }

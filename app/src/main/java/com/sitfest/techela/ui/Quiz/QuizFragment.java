@@ -63,6 +63,7 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
     private final ArrayList<String> keys = new ArrayList<>();
     private View root;
     private ProgressDialog mProgressDialog;
+    private ArrayList<String> cluesList;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {

@@ -43,9 +43,9 @@ public class SplashActivity extends Activity {
 //        mHandler = new Handler();
 //        mLicenseCheckerCallback = new mLicenseCheckerCallback();
 //        mChecker = new LicenseChecker(this, new ServerManagedPolicy(this, new AESObfuscator(SALT, getPackageName(), deviceId)), BASE64_PUBLIC_KEY);
-
-        doCheck();
-        if (!licensed) {
+//
+//        doCheck();
+//        if (!licensed) {
             if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
 
                 // Permission is not granted
@@ -74,7 +74,7 @@ public class SplashActivity extends Activity {
             },2500);
 
         }
-    }
+//    }
 
     @Override
     public void onRequestPermissionsResult(int requestCode,
