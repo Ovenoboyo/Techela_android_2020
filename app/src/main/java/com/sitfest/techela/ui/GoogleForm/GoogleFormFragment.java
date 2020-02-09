@@ -275,7 +275,7 @@ public class GoogleFormFragment extends Fragment implements ZXingScannerView.Res
         Bundle bundle = new Bundle();
         bundle.putString("title", "Clue No. "+index);
         bundle.putString("text", cluesList.get(index));
-        bundle.putString("extras", "");
+        bundle.putString("extras", cluesExtrasList.get(index));
         FragmentManager fm = getChildFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();
         dialog.setArguments(bundle);

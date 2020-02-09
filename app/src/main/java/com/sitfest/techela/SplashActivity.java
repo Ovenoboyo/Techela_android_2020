@@ -45,7 +45,6 @@ public class SplashActivity extends Activity {
         mChecker = new LicenseChecker(this, new ServerManagedPolicy(this, new AESObfuscator(SALT, getPackageName(), deviceId)), BASE64_PUBLIC_KEY);
 
         doCheck();
-        if (licensed) {
             if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
 
                 // Permission is not granted
@@ -55,7 +54,6 @@ public class SplashActivity extends Activity {
                     Toast.makeText(this, "Camera Permission is required to run QR Scanner", Toast.LENGTH_LONG).show();
                 } else {
                     // No explanation needed; request the permission
-
                     ActivityCompat.requestPermissions(this,
                             new String[]{Manifest.permission.CAMERA},
                             PERMISSION_REQUEST_CAMERA);
@@ -65,16 +63,15 @@ public class SplashActivity extends Activity {
                     // result of the request.
                 }
             } else {
-                mHandler =new Handler();
-                mHandler.postDelayed(() -> {
-                    Intent intent=new Intent(SplashActivity.this, LoginActivity.class);
-                    startActivity(intent);
-                    finish();
-                },2500);
+                if (licensed) {
+                    mHandler = new Handler();
+                    mHandler.postDelayed(() -> {
+                        Intent intent = new Intent(SplashActivity.this, LoginActivity.class);
+                        startActivity(intent);
+                        finish();
+                    }, 2500);
+                }
             }
-        } else {
-            finishAndRemoveTask();
-        }
     }
 
     @Override
@@ -85,12 +82,14 @@ public class SplashActivity extends Activity {
                     || grantResults[0] != PackageManager.PERMISSION_GRANTED) {
                 finishAndRemoveTask();
             } else {
-                mHandler =new Handler();
-                mHandler.postDelayed(() -> {
-                    Intent intent=new Intent(SplashActivity.this, LoginActivity.class);
-                    startActivity(intent);
-                    finish();
-                },2500);
+                if (licensed) {
+                    mHandler = new Handler();
+                    mHandler.postDelayed(() -> {
+                        Intent intent = new Intent(SplashActivity.this, LoginActivity.class);
+                        startActivity(intent);
+                        finish();
+                    }, 2500);
+                }
             }
         }
     }
@@ -152,7 +151,7 @@ public class SplashActivity extends Activity {
                 return;
             }
 
-            licensed = true;
+            licensed = false;
             checkingLicense = false;
             didCheck = false;
 

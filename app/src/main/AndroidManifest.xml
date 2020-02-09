@@ -19,10 +19,12 @@
         <activity
             android:name="com.sitfest.techela.MainActivity"
             android:label="@string/app_name"
+            android:screenOrientation="sensorPortrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name="com.sitfest.techela.SplashActivity"
             android:label="@string/app_name"
+            android:screenOrientation="sensorPortrait"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -32,15 +34,18 @@
         </activity>
         <activity
             android:name="com.sitfest.techela.Auth.LoginActivity"
+            android:screenOrientation="sensorPortrait"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
         <activity
             android:name="com.sitfest.techela.Auth.SignupActivity"
+            android:screenOrientation="sensorPortrait"
             android:label="SignUpActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name="com.sitfest.techela.Auth.ResetPasswordActivity"
+            android:screenOrientation="sensorPortrait"
             android:label="ResetPassActivity"
             android:theme="@style/AppTheme.NoActionBar" />
     </application>

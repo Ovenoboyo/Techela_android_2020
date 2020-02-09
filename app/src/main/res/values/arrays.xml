@@ -31,21 +31,21 @@
 
 
     <string-array name="event_time" translatable="false">
-        <item>Event Time</item>
-        <item>Event Time</item>
-        <item>Event Time</item>
-        <item>Event Time</item>
-        <item>Event Time</item>
-        <item>Event Time</item>
-        <item>Event Time</item>
-        <item>Event Time</item>
-        <item>Event Time</item>
-        <item>Event Time</item>
-        <item>Event Time</item>
-        <item>Event Time</item>
-        <item>Event Time</item>
-        <item>Event Time</item>
-        <item>Event Time</item>
+        <item>Time: 12, 13th Feb</item>
+        <item>Time: 12, 13th Feb</item>
+        <item>Time: 12, 13th Feb</item>
+        <item>Time: 12, 13th Feb</item>
+        <item>Time: 12, 13th Feb</item>
+        <item>Time: 12, 13th Feb</item>
+        <item>Time: 12, 13th Feb</item>
+        <item>Time: 12, 13th Feb</item>
+        <item>Time: 12, 13th Feb</item>
+        <item>Time: 12, 13th Feb</item>
+        <item>Time: 12, 13th Feb</item>
+        <item>Time: 12, 13th Feb</item>
+        <item>Time: 12, 13th Feb</item>
+        <item>Time: 12, 13th Feb</item>
+        <item>Time: 12, 13th Feb</item>
     </string-array>
 
     <string-array name="event_desc" translatable="false">
@@ -98,8 +98,9 @@ Sherlock Holmes said this after solving a case.
 Want to be Sherlock and solve a case?
 Here\'s your chance!
 Techela brings to you Sherlock escape</item>
-        <item>Long desc</item>
-        <item>Long desc</item>
+        <item>First time ever in Techela!
+Faculties are gonna showcase the Technology Related projects</item>
+        <item>An item will be given and you need to design it in photoshop.</item>
         <item>Editing with a twist.
 Blind formatting!
 Yes, experience Helen Keller to an extent at this event at techela!
@@ -117,21 +118,21 @@ Catch us at techela</item>
 
     </string-array>
     <string-array name="event_venue" translatable="false">
-        <item>Event Venue</item>
-        <item>Event Venue</item>
-        <item>Event Venue</item>
-        <item>Event Venue</item>
-        <item>Event Venue</item>
-        <item>Event Venue</item>
-        <item>Event Venue</item>
-        <item>Event Venue</item>
-        <item>Event Venue</item>
-        <item>Event Venue</item>
-        <item>Event Venue</item>
-        <item>Event Venue</item>
-        <item>Event Venue</item>
-        <item>Event Venue</item>
-        <item>Event Venue</item>
+        <item>Venue: 2nd floor SIT</item>
+        <item>Venue: 2nd floor SIT</item>
+        <item>Venue: 2nd floor SIT</item>
+        <item>Venue: 2nd floor SIT</item>
+        <item>Venue: 2nd floor SIT</item>
+        <item>Venue: 2nd floor SIT</item>
+        <item>Venue: 2nd floor SIT</item>
+        <item>Venue: 2nd floor SIT</item>
+        <item>Venue: 2nd floor SIT</item>
+        <item>Venue: 2nd floor SIT</item>
+        <item>Venue: 2nd floor SIT</item>
+        <item>Venue: 2nd floor SIT</item>
+        <item>Venue: 2nd floor SIT</item>
+        <item>Venue: 2nd floor SIT</item>
+        <item>Venue: 2nd floor SIT</item>
     </string-array>
 
 

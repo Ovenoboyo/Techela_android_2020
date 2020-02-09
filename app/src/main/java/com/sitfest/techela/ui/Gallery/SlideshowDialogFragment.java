@@ -22,7 +22,7 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 
-class SlideshowDialogFragment extends DialogFragment {
+public class SlideshowDialogFragment extends DialogFragment {
     private final String TAG = SlideshowDialogFragment.class.getSimpleName();
     private ArrayList<Image> images;
     private ViewPager viewPager;
@@ -96,7 +96,7 @@ class SlideshowDialogFragment extends DialogFragment {
     }
 
     //  adapter
-    class MyViewPagerAdapter extends PagerAdapter {
+    public class MyViewPagerAdapter extends PagerAdapter {
 
         MyViewPagerAdapter() {
         }

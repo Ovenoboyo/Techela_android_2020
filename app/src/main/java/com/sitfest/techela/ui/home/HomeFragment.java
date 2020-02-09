@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.github.clans.fab.FloatingActionButton;
 import com.sitfest.techela.MainActivity;
 import com.sitfest.techela.R;
 
@@ -41,6 +42,8 @@ public class HomeFragment extends Fragment {
         com.github.clans.fab.FloatingActionButton fab_website = root.findViewById(R.id.fab_website);
         com.github.clans.fab.FloatingActionButton fab_facebook = root.findViewById(R.id.fab_fb);
 
+        com.github.clans.fab.FloatingActionButton fab_youtube = root.findViewById(R.id.fab_youtube);
+
         Toolbar toolbar = ((MainActivity) Objects.requireNonNull(getActivity())).getToolbar();
         toolbar.setTitle("Events");
 
@@ -55,6 +58,23 @@ public class HomeFragment extends Fragment {
             } catch (ActivityNotFoundException e) {
                 startActivity(new Intent(Intent.ACTION_VIEW,
                         Uri.parse("https://www.instagram.com/t_e_c_h_e_l_a/")));
+            }
+        });
+
+        fab_youtube.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Uri uri = Uri.parse("https://www.youtube.com/channel/UCCWzAl2aHLxyOcApa--cmBw");
+                Intent likeIng = new Intent(Intent.ACTION_VIEW, uri);
+
+                likeIng.setPackage("com.google.android.youtube");
+
+                try {
+                    startActivity(likeIng);
+                } catch (ActivityNotFoundException e) {
+                    startActivity(new Intent(Intent.ACTION_VIEW,
+                            Uri.parse("https://www.youtube.com/channel/UCCWzAl2aHLxyOcApa--cmBw")));
+                }
             }
         });
 
@@ -103,7 +123,7 @@ public class HomeFragment extends Fragment {
                 R.drawable.graphic_banner,
                 R.drawable.blind_banner,
                 R.drawable.quiz_banner,
-                R.drawable.placeholder_banner,
+                R.drawable.physiothon_banner,
                 R.drawable.treasure_banner,
                 R.drawable.game_banner,
 
@@ -123,7 +143,7 @@ public class HomeFragment extends Fragment {
                 R.drawable.graphic_logo,
                 R.drawable.blind_logo,
                 R.drawable.quiz_logo,
-                R.drawable.placeholder,
+                R.drawable.physiothon_logo,
                 R.drawable.treasure_logo,
                 R.drawable.game__loho,
 

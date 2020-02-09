@@ -30,7 +30,7 @@ import java.util.Objects;
 
 public class GalleryFragment extends Fragment {
 
-    private static final String endpoint = "https://gist.githubusercontent.com/Ovenoboyo/6bb7d9cac549a79b20c9a4850e2e91f9/raw/d862ec6add654220205ffc4c09c08cbabe212205/TechelaGallery.json";
+    private static final String endpoint = "https://gist.githubusercontent.com/Ovenoboyo/6bb7d9cac549a79b20c9a4850e2e91f9/raw/7a7157dab50c6d0e10f7e6d414cf98ef2f01783e/TechelaGallery.json";
     private ArrayList<Image> images;
     private ProgressDialog pDialog;
     private GalleryAdapter mAdapter;

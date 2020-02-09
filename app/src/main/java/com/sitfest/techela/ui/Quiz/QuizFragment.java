@@ -43,7 +43,7 @@ import java.util.Random;
 public class QuizFragment extends Fragment implements View.OnClickListener {
 
     private Map<Integer, QuestionsModel> QuestionsMap = new HashMap<>();
-    private final int LAST_POSITION = 9; // 10 Questions
+    private final int LAST_POSITION = 14; // 15 Questions
     private final int FIRST_POSITION = 0;
     private final Map<String, String> AnswersMap = new HashMap<>();
     private Button start;
@@ -196,7 +196,7 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
         options_ll.setVisibility(View.VISIBLE);
         question_buttons_ll.setVisibility(View.VISIBLE);
         quiz_timer.setVisibility(View.VISIBLE);
-        new CountDownTimer(300000, 1000) {
+        new CountDownTimer(150000, 1000) {
 
             public void onTick(long millisUntilFinished) {
                 quiz_timer.setText(String.valueOf(millisUntilFinished / 1000));
@@ -323,7 +323,7 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
                 Random rand = new Random();
                 Object[] keysArray = QuestionsMap.keySet().toArray();
                 ArrayList<Object> keysList = new ArrayList<>(Arrays.asList(keysArray));
-                for (int k =  0; k < 10; k++) {
+                for (int k =  0; k < LAST_POSITION + 1; k++) {
                     int random;
                     if (keysList.size() > 1) {
                         random = rand.nextInt(keysList.size() - 1);

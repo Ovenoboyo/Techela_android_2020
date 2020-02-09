@@ -61,16 +61,18 @@ public class ListViewAdapter extends BaseAdapter {
         text.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                TreasureHuntDialog dialog = new TreasureHuntDialog();
-                Bundle bundle = new Bundle();
-                bundle.putString("title", "Clue No. "+position);
-                bundle.putString("text", clues.get(position));
-                bundle.putString("extras", clueExtras.get(position));
-                FragmentManager fm = activity.getSupportFragmentManager();
-                FragmentTransaction ft = fm.beginTransaction();
-                dialog.setArguments(bundle);
-                dialog.show(ft, "TreasureDialogFragment");
-                ft.addToBackStack("TreasureDialogFragment");
+                if (!mData.get(position).equals("You haven't found any clues yet")) {
+                    TreasureHuntDialog dialog = new TreasureHuntDialog();
+                    Bundle bundle = new Bundle();
+                    bundle.putString("title", "Clue No. " + position);
+                    bundle.putString("text", clues.get(position));
+                    bundle.putString("extras", clueExtras.get(position));
+                    FragmentManager fm = activity.getSupportFragmentManager();
+                    FragmentTransaction ft = fm.beginTransaction();
+                    dialog.setArguments(bundle);
+                    dialog.show(ft, "TreasureDialogFragment");
+                    ft.addToBackStack("TreasureDialogFragment");
+                }
             }
         });
 
