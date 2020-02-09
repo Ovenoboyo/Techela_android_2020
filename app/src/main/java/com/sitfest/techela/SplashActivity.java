@@ -64,17 +64,17 @@ public class SplashActivity extends Activity {
                     // app-defined int constant. The callback method gets the
                     // result of the request.
                 }
+            } else {
+                mHandler =new Handler();
+                mHandler.postDelayed(() -> {
+                    Intent intent=new Intent(SplashActivity.this, LoginActivity.class);
+                    startActivity(intent);
+                    finish();
+                },2500);
             }
         } else {
             finishAndRemoveTask();
         }
-
-        mHandler =new Handler();
-        mHandler.postDelayed(() -> {
-            Intent intent=new Intent(SplashActivity.this, LoginActivity.class);
-            startActivity(intent);
-            finish();
-        },2500);
     }
 
     @Override
@@ -84,6 +84,13 @@ public class SplashActivity extends Activity {
             if (grantResults.length <= 0
                     || grantResults[0] != PackageManager.PERMISSION_GRANTED) {
                 finishAndRemoveTask();
+            } else {
+                mHandler =new Handler();
+                mHandler.postDelayed(() -> {
+                    Intent intent=new Intent(SplashActivity.this, LoginActivity.class);
+                    startActivity(intent);
+                    finish();
+                },2500);
             }
         }
     }

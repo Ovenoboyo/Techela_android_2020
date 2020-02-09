@@ -64,7 +64,6 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
     private final ArrayList<String> keys = new ArrayList<>();
     private View root;
     private ProgressDialog mProgressDialog;
-    private ArrayList<String> cluesList;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -192,6 +191,7 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
     }
 
     private void setupQuestions() {
+        ((MainActivity)getActivity()).setDrawerEnabled(false);
         start.setVisibility(View.GONE);
         options_ll.setVisibility(View.VISIBLE);
         question_buttons_ll.setVisibility(View.VISIBLE);

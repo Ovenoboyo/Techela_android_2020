@@ -4,7 +4,7 @@
     <string name="menu_events">Events</string>
 
 
-    <string name="register">Register</string>
+    <string name="register">QR Scanner</string>
     <string name="techela">Techela</string>
     <string name="gallery">Gallery</string>
     <string name="share">Share</string>
@@ -39,4 +39,5 @@
     <string name="submit">Submit</string>
     <string name="start">Start</string>
     <string name="back_to_app">Back to app?</string>
+    <string name="all_clues">All Clues</string>
 </resources>
