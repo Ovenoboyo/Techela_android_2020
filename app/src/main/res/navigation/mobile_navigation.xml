@@ -32,4 +32,10 @@
         android:name="com.sitfest.techela.ui.Quiz.QuizFragment"
         android:label="@string/quiz" />
 
+    <fragment
+        android:id="@+id/register"
+        android:name="com.sitfest.techela.ui.Registration.RegistrationFragment"
+        android:label="Register" />
+
+
 </navigation>

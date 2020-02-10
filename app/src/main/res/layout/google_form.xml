@@ -40,7 +40,6 @@
                 android:paddingLeft="15dp"
                 android:textSize="16sp"
                 android:text="@string/all_clues"
-                android:paddingStart="15dp"
                 android:layout_centerVertical="true"/>
 
         </RelativeLayout>

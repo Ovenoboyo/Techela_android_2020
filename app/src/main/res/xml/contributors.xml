@@ -42,7 +42,7 @@
         <Preference
             android:icon="@drawable/ic_person"
             android:summary="Co-Head"
-            android:title="Ayushi Verma">
+            android:title="Aayushi Verma">
         </Preference>
     </PreferenceCategory>
 
@@ -130,7 +130,7 @@
         <Preference
             android:icon="@drawable/ic_person"
             android:summary="Co-Head"
-            android:title="Riya Gohel">
+            android:title="Ria Gohel">
         </Preference>
     </PreferenceCategory>
 
@@ -197,7 +197,7 @@
         <Preference
             android:icon="@drawable/ic_person"
             android:summary="Co-Head"
-            android:title="Atharva Rajbansi">
+            android:title="Atharva Rajbanshi">
         </Preference>
     </PreferenceCategory>
 

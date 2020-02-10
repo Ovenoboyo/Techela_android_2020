@@ -42,11 +42,11 @@ public class GalleryFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true);
+        ((MainActivity) Objects.requireNonNull(getActivity())).setDrawerEnabled(true);
         pDialog = new ProgressDialog(this.getContext());
         images = new ArrayList<>();
         mAdapter = new GalleryAdapter(this.getContext(), images);
-        setHasOptionsMenu(true);
-        ((MainActivity) Objects.requireNonNull(getActivity())).setDrawerEnabled(true);
 
         fetchImages();
 
@@ -54,8 +54,6 @@ public class GalleryFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        Toolbar toolbar = ((MainActivity) Objects.requireNonNull(getActivity())).getToolbar();
-        toolbar.setTitle("Gallery");
         View root = inflater.inflate(R.layout.fragment_gallery, container, false);
 
         RecyclerView recyclerView = root.findViewById(R.id.gallery_recycler);
@@ -65,6 +63,12 @@ public class GalleryFragment extends Fragment {
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(mAdapter);
+
+
+        Toolbar toolbar = ((MainActivity) Objects.requireNonNull(getActivity())).getToolbar();
+        toolbar.setTitle("Gallery");
+
+        ((MainActivity)getActivity()).setDrawerEnabled(true);
 
         recyclerView.addOnItemTouchListener(new GalleryAdapter.RecyclerTouchListener(getActivity().getApplicationContext(), recyclerView, new GalleryAdapter.ClickListener() {
             @Override

@@ -149,20 +149,20 @@
         </RelativeLayout>
     </ScrollView>
     <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_alignParentBottom="true"
-        android:elevation="18dp"
-        android:background="@color/colorPrimary">
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:layout_alignParentBottom="true"
+    android:elevation="18dp"
+    android:background="@color/colorPrimary">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:text="@string/tickets"
-            android:textAlignment="center"
-            android:textColor="@android:color/white"
-            android:textSize="18sp" />
-    </RelativeLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:text="@string/tickets"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:textSize="18sp" />
+</RelativeLayout>
 
 </RelativeLayout>

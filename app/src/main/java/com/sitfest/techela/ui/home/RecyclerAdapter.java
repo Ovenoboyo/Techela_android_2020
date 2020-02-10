@@ -1,7 +1,9 @@
 package com.sitfest.techela.ui.home;
 
+import android.app.ActivityManager;
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,6 +29,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
     private final int[] EventBanner;
     private static LayoutInflater inflater = null;
     private final FragmentActivity context;
+    private int totalMem;
 
     public RecyclerAdapter(FragmentActivity Activity, String[] EventName, String[] EventDesc, int[] EventPic, int[] EventBanner, String[] EventTime, String[] EventVenue, String[] EventDescLong) {
         this.EventName = EventName;
@@ -37,6 +40,13 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
         this.EventTime = EventTime;
         this.EventVenue = EventVenue;
         this.context = Activity;
+        ActivityManager activityManager = (ActivityManager) context
+                .getSystemService(Context.ACTIVITY_SERVICE);
+        ActivityManager.MemoryInfo memoryInfo = new ActivityManager.MemoryInfo();
+        activityManager.getMemoryInfo(memoryInfo);
+
+        totalMem = Math.toIntExact((memoryInfo.totalMem / 1000000000));
+
         inflater = (LayoutInflater) ((Context) Activity).getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
@@ -51,7 +61,11 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
     public void onBindViewHolder(ViewHolder holder, final int position) {
         holder.EventName.setText(EventName[position]);
         holder.EventDesc.setText(EventDesc[position]);
-        holder.EventPic.setImageResource(EventPic[position]);
+        if (totalMem > 3) {
+            holder.EventPic.setImageResource(EventPic[position]);
+        } else {
+            holder.EventPic.setVisibility(View.INVISIBLE);
+        }
         holder.EventBanner.setImageResource(EventBanner[position]);
         holder.itemView.setOnClickListener(v -> {
             EventDetailsFragment nextFrag= new EventDetailsFragment();

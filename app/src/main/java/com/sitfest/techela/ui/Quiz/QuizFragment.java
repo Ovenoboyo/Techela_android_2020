@@ -67,9 +67,9 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
         ((MainActivity) Objects.requireNonNull(getActivity())).setDrawerEnabled(true);
+        super.onCreate(savedInstanceState);
     }
 
     public QuizFragment() {
@@ -79,8 +79,6 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         root = inflater.inflate(R.layout.quiz_fragment, container, false);
-        Toolbar toolbar = ((MainActivity) Objects.requireNonNull(getActivity())).getToolbar();
-        toolbar.setTitle("Quiz");
 
         if (mProgressDialog == null) {
             mProgressDialog = new ProgressDialog(getContext());
@@ -88,7 +86,7 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
             mProgressDialog.setIndeterminate(true);
         }
 
-        mProgressDialog.show();
+         mProgressDialog.show();
 
         DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference();
         DatabaseReference statusNode = rootRef.child("QuizStart");
@@ -159,6 +157,9 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
 
             }
         });
+        Toolbar toolbar = ((MainActivity) Objects.requireNonNull(getActivity())).getToolbar();
+
+        toolbar.setTitle("Quiz");
         return root;
     }
 

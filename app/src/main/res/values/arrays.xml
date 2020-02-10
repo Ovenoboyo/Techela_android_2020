@@ -1,15 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><!--
-     Copyright (C) 2019 Project Pearl
-     Licensed under the Apache License, Version 2.0 (the "License");
-     you may not use this file except in compliance with the License.
-     You may obtain a copy of the License at
-          https://www.apache.org/licenses/LICENSE-2.0
-     Unless required by applicable law or agreed to in writing, software
-     distributed under the License is distributed on an "AS IS" BASIS,
-     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-     See the License for the specific language governing permissions and
-     limitations under the License.
--->
+<?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string-array name="event_title" translatable="false">
         <item>PUBG</item>
@@ -69,14 +58,17 @@
     </string-array>
 
     <string-array name="event_desc_long" translatable="false">
-        <item>Exited for the most famous mobile game competition ??Techela 2020 presents you PUBG (mobile) tournament . Bring your squad and join the group . Become the
+        <item>Excited for the most famous mobile game competition ??Techela 2020 presents you PUBG (mobile) tournament . Bring your squad and join the group . Become the
 part of most exited gaming event </item>
         <item>
 The most awaited gaming event is here.
 Get your squad together for the ultimate battle of CS GO
 Join us this TECHELA on 12th and 13th
 AMAZING CASH PRIZES FOR 1ST AND 2ND WINNERS UPTO ₹ 2500</item>
-        <item>Long desc</item>
+        <item>Techela is coming up with more Gaming Events. This time it is *Call of duty Mobile
+Join and be a part of our SQUAD.
+For further details Join the group via link provided below.
+*LET THE BATTLE BEGIN *</item>
         <item>Hello Guys!!
 Techela is hosting an interesting Gaming event  Mini Militia.
 Mini Militia has already made a name for itself.
@@ -134,7 +126,5 @@ Catch us at techela</item>
         <item>Venue: 2nd floor SIT</item>
         <item>Venue: 2nd floor SIT</item>
     </string-array>
-
-
 </resources>
 

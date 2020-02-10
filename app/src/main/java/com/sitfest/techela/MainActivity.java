@@ -15,9 +15,11 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
+import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import com.bumptech.glide.manager.SupportRequestManagerFragment;
 import com.sitfest.techela.ui.Contributors.ContributorsPagerFragment;
 import com.sitfest.techela.ui.Contributors.DevelopersFragment;
 import com.sitfest.techela.ui.EventDetails.EventDetailsFragment;
@@ -27,13 +29,14 @@ import com.sitfest.techela.ui.Quiz.QuizFragment;
 import com.sitfest.techela.ui.home.HomeFragment;
 import com.google.android.material.navigation.NavigationView;
 
+import java.util.List;
 import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
     private Toolbar toolbar;
-    private ActionBarDrawerToggle mDrawerToggle;
+    public ActionBarDrawerToggle mDrawerToggle;
     private DrawerLayout drawer;
 
     @Override
@@ -48,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
         mDrawerToggle.setDrawerIndicatorEnabled(true);
         NavigationView navigationView = findViewById(R.id.nav_view);
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.events, R.id.qr_code)
+                R.id.events, R.id.qr_code, R.id.share, R.id.quiz, R.id.gallery)
                 .setDrawerLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
@@ -88,11 +91,9 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-
-        int count = getSupportFragmentManager().getBackStackEntryCount();
-
             FragmentManager fm = getSupportFragmentManager();
-            for (Fragment fragment : fm.getFragments()) {
+            List<Fragment> allFragments = fm.getFragments();
+            for (Fragment fragment : allFragments) {
                 Log.d("test", "onBackPressed: "+fragment);
                 if (fragment instanceof EventDetailsFragment) {
                     fm.popBackStack();
@@ -106,7 +107,8 @@ public class MainActivity extends AppCompatActivity {
                 } else if (fragment instanceof DevelopersFragment) {
                     fm.popBackStack();
                     toolbar.setTitle("Contributors");
-                } else if(fragment instanceof HomeFragment || fragment instanceof GalleryFragment || fragment instanceof GoogleFormFragment || fragment instanceof QuizFragment){
+                    return;
+                } else if((fragment instanceof HomeFragment || fragment instanceof NavHostFragment || fragment instanceof SupportRequestManagerFragment) && allFragments.size() <=2){
                     new AlertDialog.Builder(Objects.requireNonNull(this))
                             .setTitle("Exit?")
                             .setMessage("Are you sure you want to exit?")
